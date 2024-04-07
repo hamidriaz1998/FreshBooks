@@ -126,7 +126,7 @@ namespace BookShopForms.Forms.Admin
                 return;
             }
             SelectedRow = dataGridView1.CurrentCell.RowIndex;
-            if (SelectedRow > 0 && SelectedRow <= dt.Rows.Count)
+            if (SelectedRow >= 0 && SelectedRow <= dt.Rows.Count)
             {
                 int id = int.Parse(dt.Rows[SelectedRow]["Id"].ToString());
                 Book book = BookDL.FindBook(id);
