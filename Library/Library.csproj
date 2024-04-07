@@ -45,10 +45,13 @@
     <Compile Include="BL\Book.cs" />
     <Compile Include="BL\Salesman.cs" />
     <Compile Include="BL\User.cs" />
-    <Compile Include="DBConfig.cs" />
-    <Compile Include="DL\BookDL.cs" />
-    <Compile Include="DL\UserDL.cs" />
+    <Compile Include="DL\DB\UserDL.cs"/>
+    <Compile Include="DL\DB\BookDB.cs"/>
+    <Compile Include="DL\FH\BookFH.cs"/>
+    <Compile Include="Utils\DBConfig.cs"/>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DLInterfaces\IUserDL.cs" />
+    <Compile Include="DLInterfaces\IBookDL.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
