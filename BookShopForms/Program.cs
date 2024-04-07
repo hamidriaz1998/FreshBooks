@@ -17,8 +17,10 @@ namespace BookShopForms
         [STAThread]
         static void Main()
         {
+            IBookDL BookDL = BookFH.GetInstance();
+
             UserDL.LoadFromDb();
-            BookDL.LoadFromDb();
+            BookDL.Load();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Landing());
