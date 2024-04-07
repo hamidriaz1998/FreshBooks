@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
-
+﻿
 namespace BookShopForms.BL
 {
-    public class User
+    public abstract class User
     {
         protected int ID;
         protected string Username;
@@ -66,9 +60,6 @@ namespace BookShopForms.BL
             return UsernamesMatch(username) && PasswordsMatch(password);
         }
 
-        public virtual string GetType()
-        {
-            return "user";
-        }
+        public new abstract string GetType();
     }
 }
