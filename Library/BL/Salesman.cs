@@ -18,6 +18,12 @@ namespace BookShopForms.BL
             Earnings = 0;
             Sales = 0;
         }
+        public Salesman(string username, string password, float earnings, float salary, int sales) : base(username, password)
+        {
+            Earnings = earnings;
+            Salary = salary;
+            Sales = sales;
+        }
         // Getters Setters
         public float GetEarnings()
         {
