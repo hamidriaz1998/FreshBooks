@@ -91,6 +91,17 @@ namespace BookShopForms.DL
             }
             return null;
         }
+        public User GetUser(int id)
+        {
+            foreach (User u in Users)
+            {
+                if (u.GetID() == id)
+                {
+                    return u;
+                }
+            }
+            return null;
+        }
         public List<User> GetUsers()
         {
             return Users;
@@ -131,10 +142,18 @@ namespace BookShopForms.DL
         {
             // Load users from file
         }
+        private void LoadUsersFromFile()
+        {
+            // Load users from file
+        }
+        private void LoadSalesmenFromFile()
+        {
+            // Load salesmen from file
+        }
         private bool StoreInFile(User u)
         {
             StreamWriter sw = new StreamWriter(UserFile, true);
-            sw.WriteLine(u.GetID() + ";" + u.GetUsername() + ";" + u.GetPassword() + ";" + u.GetType());
+            sw.WriteLine(u.GetID() + ";" + u.GetUsername() + ";" + u.GetPassword() + ";" + u.GetCurrency() + ";" + u.GetType());
             sw.Close();
             return true;
         }

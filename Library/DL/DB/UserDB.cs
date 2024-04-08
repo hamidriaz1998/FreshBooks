@@ -10,6 +10,7 @@ namespace BookShopForms.DL
     {
         private DBConfig Db = DBConfig.GetInstance();
         private static UserDB Instance;
+        private List<User> Users = new List<User>();
         private UserDB() { }
         public static UserDB GetInstance()
         {
@@ -19,7 +20,6 @@ namespace BookShopForms.DL
             }
             return Instance;
         }
-        private List<User> Users = new List<User>();
         public bool UserExists(string username)
         {
             foreach (User u in Users)
@@ -78,6 +78,17 @@ namespace BookShopForms.DL
             foreach (User u in Users)
             {
                 if (u.GetUsername() == username)
+                {
+                    return u;
+                }
+            }
+            return null;
+        }
+        public User GetUser(int id)
+        {
+            foreach (User u in Users)
+            {
+                if (u.GetID() == id)
                 {
                     return u;
                 }
