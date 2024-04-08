@@ -9,8 +9,8 @@ namespace BookShopForms.DL
     {
         private static UserFH Instance;
         private List<User> Users = new List<User>();
-        private string UserFile = "../../users.txt";
-        private string SalesmanFile = "../../salesmen.txt";
+        private string UserFile = "../../DataFiles/users.txt";
+        private string SalesmanFile = "../../DataFiles/salesmen.txt";
         private UserFH() { }
         public static UserFH GetInstance()
         {

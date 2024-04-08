@@ -9,7 +9,7 @@ namespace BookShopForms.DL
         // Implement this DL with file handling instead of a database
         private static BookFH Instance;
         private static List<Book> Books = new List<Book>();
-        private string Path = "../../Books.txt";
+        private string Path = "../../DataFiles/Books.txt";
         private BookFH() { }
         public static BookFH GetInstance()
         {
