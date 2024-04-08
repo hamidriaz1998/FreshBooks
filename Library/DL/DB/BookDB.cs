@@ -1,6 +1,6 @@
 using System.Data.SqlClient;
 using System.Collections.Generic;
-using Library;
+using Library.Utils;
 using Library.BL;
 
 namespace Library.DL

@@ -1,39 +1,42 @@
 using System.Data.SqlClient;
 using Library;
 
-class DBConfig
+namespace Library.Utils
 {
-    private static string ConnectionString = "Server=localhost\\SQLEXPRESS;Database=BookShop;Trusted_Connection=True;";
-    private static DBConfig instance;
-    private static SqlConnection connection;
-    public static DBConfig GetInstance()
+    class DBConfig
     {
-        if (instance == null)
+        private static string ConnectionString = "Server=localhost\\SQLEXPRESS;Database=BookShop;Trusted_Connection=True;";
+        private static DBConfig instance;
+        private static SqlConnection connection;
+        public static DBConfig GetInstance()
         {
-            instance = new DBConfig();
+            if (instance == null)
+            {
+                instance = new DBConfig();
+            }
+            return instance;
         }
-        return instance;
-    }
-    private DBConfig()
-    {
-        connection = new SqlConnection(ConnectionString);
-        connection.Open();
-    }
-    public SqlConnection GetConnection()
-    {
-        return connection;
-    }
-    public bool ExecuteCommand(SqlCommand cmd)
-    {
-        try
+        private DBConfig()
         {
-            cmd.Connection = connection;
-            cmd.ExecuteNonQuery();
-            return true;
+            connection = new SqlConnection(ConnectionString);
+            connection.Open();
         }
-        catch (System.Exception)
+        public SqlConnection GetConnection()
         {
-            return false;
+            return connection;
+        }
+        public bool ExecuteCommand(SqlCommand cmd)
+        {
+            try
+            {
+                cmd.Connection = connection;
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (System.Exception)
+            {
+                return false;
+            }
         }
     }
 }
