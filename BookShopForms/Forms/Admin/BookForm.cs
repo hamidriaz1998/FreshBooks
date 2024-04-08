@@ -98,6 +98,11 @@ namespace BookShopForms.Forms.AdminForms
                 MessageBox.Show("Book already exists");
                 return;
             }   
+            if (IsbnBox.Text.Length > 15)
+            {
+                MessageBox.Show("Invalid Isbn");
+                return;
+            }
             BookDL.AddBook(book);
             AddDataRow(book);
             ClearFields();
