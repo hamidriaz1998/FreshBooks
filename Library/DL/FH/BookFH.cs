@@ -1,96 +1,30 @@
+using Library.AbstractDLs;
 using Library.BL;
 using System.Collections.Generic;
 using System.IO;
 
 namespace Library.DL
 {
-    public class BookFH : IBookDL
+    public class BookFH : BookDL, IBookDL
     {
         // Implement this DL with file handling instead of a database
         private static BookFH Instance;
-        private static List<Book> Books = new List<Book>();
         private string Path = "../../../DataFiles/Books.txt";
-        private BookFH() { }
         public static BookFH GetInstance()
         {
             if (Instance == null)
                 Instance = new BookFH();
             return Instance;
         }
-        public void AddBook(Book book)
+        public override void AddBook(Book book)
         {
-            if (BookExists(book))
-            {
-                return;
-            }
             if (book.GetID() == 0)
             {
                 book.SetID(Books.Count + 1);
             }
-            Books.Add(book);
-            StoreInFile(book);
+            base.AddBook(book);
         }
-        public Book FindBook(int id)
-        {
-            foreach (Book b in Books)
-            {
-                if (b.GetID() == id)
-                {
-                    return b;
-                }
-            }
-            return null;
-        }
-        public Book FindBook(string isbn)
-        {
-            foreach (Book b in Books)
-            {
-                if (b.GetISBN() == isbn)
-                {
-                    return b;
-                }
-            }
-            return null;
-        }
-        public void UpdateBook(Book book)
-        {
-            if (BookExists(book))
-            {
-                UpdateInFile(book);
-            }
-        }
-        public List<Book> GetBooks()
-        {
-            return Books;
-        }
-        public bool BookExists(Book book)
-        {
-            foreach (Book b in Books)
-            {
-                if (b.GetID() == book.GetID())
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-        public bool BookExists(string isbn)
-        {
-            foreach (Book b in Books)
-            {
-                if (b.GetISBN() == isbn)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-        public void RemoveBook(Book book)
-        {
-            Books.Remove(book);
-            RemoveFromFile(book);
-        }
-        public void LoadBooks()
+        public override void LoadBooks()
         {
             if (!File.Exists(Path))
                 return;
@@ -105,14 +39,14 @@ namespace Library.DL
             }
             sr.Close();
         }
-        private void StoreInFile(Book book)
+        protected override void StoreInSource(Book book)
         {
             StreamWriter sw = new StreamWriter(Path, true);
             sw.WriteLine(book.GetID() + "," + book.GetTitle() + "," + book.GetAuthor() + "," + book.GetISBN() + "," + book.GetPublicationYear() + "," + book.GetPrice() + "," + book.GetStock() + "," + book.GetMinStock() + "," + book.GetCopiesSold());
             sw.Flush();
             sw.Close();
         }
-        private void UpdateInFile(Book book)
+        protected override void UpdateInSource(Book book)
         {
             string[] lines = File.ReadAllLines(Path);
             for (int i = 0; i < lines.Length; i++)
@@ -126,7 +60,7 @@ namespace Library.DL
             }
             File.WriteAllLines(Path, lines);
         }
-        private void RemoveFromFile(Book book)
+        protected override void RemoveFromSource(Book book)
         {
             // Remove from file
             string[] lines = File.ReadAllLines(Path);
@@ -143,7 +77,5 @@ namespace Library.DL
             }
             File.WriteAllLines(Path, newLines);
         }
-
-
     }
 }

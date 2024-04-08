@@ -10,17 +10,13 @@ namespace Library.DL
     {
         private static DBConfig Db = DBConfig.GetInstance();
         private static BookDB Instance;
-        private BookDB()
-        {
-
-        }
         public static BookDB GetInstance()
         {
             if (Instance == null)
                 Instance = new BookDB();
             return Instance;
         }
-        public void LoadBooks()
+        public override void LoadBooks()
         {
             SqlCommand cmd = new SqlCommand("SELECT * FROM Book", Db.GetConnection());
             SqlDataReader reader = cmd.ExecuteReader();

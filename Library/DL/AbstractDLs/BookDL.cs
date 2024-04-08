@@ -6,7 +6,7 @@ namespace Library.AbstractDLs
     public abstract class BookDL
     {
         protected List<Book> Books = new List<Book>();
-        public void AddBook(Book book)
+        public virtual void AddBook(Book book)
         {
             if (!BookExists(book))
             {
@@ -81,6 +81,7 @@ namespace Library.AbstractDLs
         {
             return Books;
         }
+        public abstract void LoadBooks();
         protected abstract void StoreInSource(Book book);
         protected abstract void UpdateInSource(Book book);
         protected abstract void RemoveFromSource(Book book);
