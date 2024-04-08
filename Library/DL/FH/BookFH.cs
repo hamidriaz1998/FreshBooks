@@ -90,7 +90,7 @@ namespace BookShopForms.DL
             Books.Remove(book);
             RemoveFromFile(book);
         }
-        public void Load()
+        public void LoadBooks()
         {
             StreamReader sr = new StreamReader(Path);
             string line;

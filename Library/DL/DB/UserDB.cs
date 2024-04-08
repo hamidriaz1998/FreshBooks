@@ -176,7 +176,7 @@ namespace BookShopForms.DL
                 return false;
             }
         }
-        public void Load()
+        public void LoadUsers()
         {
             LoadAdminFromDb();
             LoadSalesmenFromDb();

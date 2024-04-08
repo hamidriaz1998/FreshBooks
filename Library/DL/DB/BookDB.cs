@@ -97,7 +97,7 @@ namespace BookShopForms.DL
             return Books;
         }
 
-        public void Load()
+        public void LoadBooks()
         {
             SqlCommand cmd = new SqlCommand("SELECT * FROM Book", Db.GetConnection());
             SqlDataReader reader = cmd.ExecuteReader();

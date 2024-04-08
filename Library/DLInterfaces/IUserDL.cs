@@ -16,7 +16,7 @@ namespace BookShopForms.DL
         void RemoveUser(Salesman s);
         void UpdateUser(User u);
         void UpdateUser(Salesman s);
-        void Load();
+        void LoadUsers();
         User Login(string username, string password);
     }
 }

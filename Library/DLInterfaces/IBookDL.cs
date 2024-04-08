@@ -11,7 +11,7 @@ namespace BookShopForms.DL
         void UpdateBook(Book book);
         Book FindBook(string isbn);
         Book FindBook(int id);
-        void Load();
+        void LoadBooks();
         bool BookExists(Book book);
         bool BookExists(string isbn);
     }
