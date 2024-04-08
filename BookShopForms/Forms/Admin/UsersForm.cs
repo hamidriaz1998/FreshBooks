@@ -58,6 +58,7 @@ namespace BookShopForms.Forms.Admin
             LoadData();
             FillCurrencyBox();
             dataGridView1.DataSource = dt;
+            dataGridView1.ReadOnly = true;
         }
         private bool CheckEmpty()
         {

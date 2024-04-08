@@ -56,6 +56,7 @@ namespace BookShopForms.Forms.Admin
             dt.Columns.Add("CopiesSold",typeof(int));
             LoadData();
             dataGridView1.DataSource = dt;
+            dataGridView1.ReadOnly = true;
         }
         private bool CheckEmpty()
         {
