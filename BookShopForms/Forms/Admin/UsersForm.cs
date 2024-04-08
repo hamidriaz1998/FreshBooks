@@ -9,12 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Library.BL;
 using Library.DL;
+using Library.Utils;
 
 namespace BookShopForms.Forms.AdminForms
 {
     public partial class UsersForm : Form
     {
         IUserDL UserDL = ObjectHandler.GetUserDL();
+        Validations validations = ObjectHandler.GetValidations();
         private DataTable dt = new DataTable();
         private int SelectedRow = 0;
         public UsersForm()
@@ -102,6 +104,16 @@ namespace BookShopForms.Forms.AdminForms
                 MessageBox.Show("Earnings and Salary must be integers");
                 return;
             }
+            if (!validations.IsUsernameValid(UsernameBox.Text))
+            {
+                MessageBox.Show("Username must be between 5 and 20 characters long and can only contain letters and numbers.");
+                return;
+            }
+            if (!validations.IsPasswordValid(PasswordBox.Text))
+            {
+                MessageBox.Show("Your password needs to be at least 6 characters long and include both letters and numbers. Please note that ',' and ';' are not allowed.");
+                return;
+            }
             if (UserDL.UserExists(UsernameBox.Text))
             {
                 MessageBox.Show("Username already exists");
@@ -125,6 +137,21 @@ namespace BookShopForms.Forms.AdminForms
             if (!CheckInt())
             {
                 MessageBox.Show("Earnings and Salary must be integers");
+                return;
+            }
+            if (!validations.IsUsernameValid(UsernameBox.Text))
+            {
+                MessageBox.Show("Username must be between 5 and 20 characters long and can only contain letters and numbers.");
+                return;
+            }
+            if (!validations.IsPasswordValid(PasswordBox.Text))
+            {
+                MessageBox.Show("Your password needs to be at least 6 characters long and include both letters and numbers. Please note that ',' and ';' are not allowed.");
+                return;
+            }
+            if (SelectedRow < 0 || SelectedRow >= dt.Rows.Count)
+            {
+                MessageBox.Show("Please select a user");
                 return;
             }
             int id = int.Parse(dt.Rows[SelectedRow]["Id"].ToString());
