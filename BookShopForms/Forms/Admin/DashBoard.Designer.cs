@@ -1,4 +1,4 @@
-﻿namespace BookShopForms.Forms.Admin
+﻿namespace BookShopForms.Forms.AdminForms
 {
     partial class DashBoard
     {
@@ -33,12 +33,12 @@
             this.BookLabel = new System.Windows.Forms.Label();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.BooksLabel = new System.Windows.Forms.Label();
+            this.BooksCountLabel = new System.Windows.Forms.Label();
             this.UsersLabel = new System.Windows.Forms.Label();
             this.EarningsLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.UserNameLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
@@ -86,38 +86,41 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Users";
             // 
-            // BooksLabel
+            // BooksCountLabel
             // 
-            this.BooksLabel.AutoSize = true;
-            this.BooksLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BooksLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(54)))), ((int)(((byte)(63)))));
-            this.BooksLabel.Location = new System.Drawing.Point(146, 303);
-            this.BooksLabel.Name = "BooksLabel";
-            this.BooksLabel.Size = new System.Drawing.Size(60, 24);
-            this.BooksLabel.TabIndex = 4;
-            this.BooksLabel.Text = "label2";
+            this.BooksCountLabel.AutoSize = true;
+            this.BooksCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BooksCountLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(54)))), ((int)(((byte)(63)))));
+            this.BooksCountLabel.Location = new System.Drawing.Point(158, 303);
+            this.BooksCountLabel.Name = "BooksCountLabel";
+            this.BooksCountLabel.Size = new System.Drawing.Size(25, 24);
+            this.BooksCountLabel.TabIndex = 4;
+            this.BooksCountLabel.Text = " 0";
+            this.BooksCountLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // UsersLabel
             // 
             this.UsersLabel.AutoSize = true;
             this.UsersLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UsersLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(54)))), ((int)(((byte)(63)))));
-            this.UsersLabel.Location = new System.Drawing.Point(610, 303);
+            this.UsersLabel.Location = new System.Drawing.Point(625, 303);
             this.UsersLabel.Name = "UsersLabel";
-            this.UsersLabel.Size = new System.Drawing.Size(60, 24);
+            this.UsersLabel.Size = new System.Drawing.Size(20, 24);
             this.UsersLabel.TabIndex = 5;
-            this.UsersLabel.Text = "label3";
+            this.UsersLabel.Text = "0";
+            this.UsersLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // EarningsLabel
             // 
             this.EarningsLabel.AutoSize = true;
             this.EarningsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EarningsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(54)))), ((int)(((byte)(63)))));
-            this.EarningsLabel.Location = new System.Drawing.Point(382, 303);
+            this.EarningsLabel.Location = new System.Drawing.Point(393, 303);
             this.EarningsLabel.Name = "EarningsLabel";
-            this.EarningsLabel.Size = new System.Drawing.Size(60, 24);
+            this.EarningsLabel.Size = new System.Drawing.Size(20, 24);
             this.EarningsLabel.TabIndex = 8;
-            this.EarningsLabel.Text = "label2";
+            this.EarningsLabel.Text = "0";
+            this.EarningsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
@@ -140,16 +143,17 @@
             this.guna2PictureBox3.TabIndex = 6;
             this.guna2PictureBox3.TabStop = false;
             // 
-            // label2
+            // UserNameLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(54)))), ((int)(((byte)(63)))));
-            this.label2.Location = new System.Drawing.Point(306, 44);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(199, 39);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "DashBoard";
+            this.UserNameLabel.AutoSize = true;
+            this.UserNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(54)))), ((int)(((byte)(63)))));
+            this.UserNameLabel.Location = new System.Drawing.Point(242, 42);
+            this.UserNameLabel.Name = "UserNameLabel";
+            this.UserNameLabel.Size = new System.Drawing.Size(209, 39);
+            this.UserNameLabel.TabIndex = 9;
+            this.UserNameLabel.Text = " DashBoard";
+            this.UserNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // DashBoard
             // 
@@ -157,12 +161,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.UserNameLabel);
             this.Controls.Add(this.EarningsLabel);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.guna2PictureBox3);
             this.Controls.Add(this.UsersLabel);
-            this.Controls.Add(this.BooksLabel);
+            this.Controls.Add(this.BooksCountLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.guna2PictureBox2);
             this.Controls.Add(this.BookLabel);
@@ -188,7 +192,7 @@
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox3;
         private System.Windows.Forms.Label UsersLabel;
-        private System.Windows.Forms.Label BooksLabel;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label BooksCountLabel;
+        private System.Windows.Forms.Label UserNameLabel;
     }
 }
