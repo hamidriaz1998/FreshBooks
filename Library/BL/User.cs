@@ -1,5 +1,5 @@
 ﻿
-namespace BookShopForms.BL
+namespace Library.BL
 {
     public abstract class User
     {

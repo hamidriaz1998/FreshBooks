@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
 
-namespace BookShopForms.BL
+namespace Library.BL
 {
     public class Book
     {

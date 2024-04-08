@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using BookShopForms.BL;
+using Library.BL;
 
-namespace BookShopForms.DL
+namespace Library.DL
 {
     public interface IBookDL
     {

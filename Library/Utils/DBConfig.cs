@@ -1,5 +1,5 @@
 using System.Data.SqlClient;
-using BookShopForms;
+using Library;
 
 class DBConfig
 {

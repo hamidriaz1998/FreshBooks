@@ -1,8 +1,8 @@
-using BookShopForms.BL;
+using Library.BL;
 using System.Collections.Generic;
 using System.IO;
 
-namespace BookShopForms.DL
+namespace Library.DL
 {
     public class BookFH : IBookDL
     {

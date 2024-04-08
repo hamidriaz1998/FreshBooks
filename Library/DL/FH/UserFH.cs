@@ -1,9 +1,9 @@
-using BookShopForms.DL;
-using BookShopForms.BL;
+using Library.DL;
+using Library.BL;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace BookShopForms.DL
+namespace Library.DL
 {
     public class UserFH : IUserDL
     {

@@ -2,9 +2,9 @@ using System.Data.SqlClient;
 using System;
 using System.Data;
 using System.Collections.Generic;
-using BookShopForms.BL;
+using Library.BL;
 
-namespace BookShopForms.DL
+namespace Library.DL
 {
     public class UserDB : IUserDL
     {

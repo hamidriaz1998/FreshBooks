@@ -1,9 +1,9 @@
 using System.Data.SqlClient;
 using System.Collections.Generic;
-using BookShopForms;
-using BookShopForms.BL;
+using Library;
+using Library.BL;
 
-namespace BookShopForms.DL
+namespace Library.DL
 {
     public class BookDB : IBookDL
     {
