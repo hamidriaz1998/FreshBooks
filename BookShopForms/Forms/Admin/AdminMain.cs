@@ -59,5 +59,10 @@ namespace BookShopForms.Forms.AdminForms
             this.Close();
             LoggedInUser = null;
         }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            LoadForm(new Settings());
+        }
     }
 }
