@@ -1,7 +1,7 @@
 
 namespace Library.Utils
 {
-    class Validations
+    public class Validations
     {
         private static Validations Instance;
         private Validations {}
