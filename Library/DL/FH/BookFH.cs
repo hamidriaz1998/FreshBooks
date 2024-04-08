@@ -92,6 +92,8 @@ namespace BookShopForms.DL
         }
         public void LoadBooks()
         {
+            if (!File.Exists(Path))
+                return;
             StreamReader sr = new StreamReader(Path);
             string line;
             while ((line = sr.ReadLine()) != null)
