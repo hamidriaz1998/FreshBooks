@@ -7,13 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using BookShopForms;
 namespace BookShopForms.Forms.Admin
 {
     public partial class AdminMain : Form
     {
-        public AdminMain()
+        public static BL.Admin LoggedInUser;
+        public AdminMain(BL.Admin admin)
         {
+            LoggedInUser = admin;
             InitializeComponent();
             LoadForm(new DashBoard());
         }
@@ -50,6 +52,12 @@ namespace BookShopForms.Forms.Admin
         private void UsersButton_Click(object sender, EventArgs e)
         {
             LoadForm(new UsersForm());
+        }
+
+        private void LogoutBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            LoggedInUser = null;
         }
     }
 }

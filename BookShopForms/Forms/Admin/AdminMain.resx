@@ -121,6 +121,20 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="LogoutBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAfBJREFUaEPtmbtKA0EYRkMkVoK1oHYWvoxKNPoKIqKN7+C1E+xF0UJ9A/U1vFsK
+        IgpeCkU0nm/nTxmMs5MZizlwYAmb7/sTdpPZ3UomkwlHs9nsxRncw3N8M7Wt16ax13b/XzDYJN7gb1xj
+        3d6WHobpwQ1N9kfWsWox6WAIn+FbrFpMGhhAh01ZJiwuLhTrhNXxXJZbjH9iU6pfm1A0LDYelO677iDs
+        Wmw8KL103UE4t9h4UPrquoPwarHxUKnrDsKzxcaD0gvXHYQzi40HpVrbhGLHYuNBqRZmoZiy2HhQWsOr
+        or4cWgCmWaFSXC9GKMe4xaWBAbSq9GXFYtLBEFVcK8b5G6uYfjndgmEmsJNzQvukPWzawWA6sRu4i2eo
+        Pzupbb02hTXbPZPJxIITbxiP8AW7jToOccjqy0GQhn/C2Dxi+Q9BiL75VBzYGP4QEuOwaUf5Cx0LSoaN
+        4Q8ZXy4qCV82hj+EPLisJDzYGP4QcuKyknBiY/hDyLzLSsKCjeEPIX14V8TF5R77bYxyEDSG30qNhLrC
+        XugTuFhEx2HJasNCsO5Id/OPTb943X1eQMEg6urqE0Pxgds4YDXdhzIt8nQx38mDvXboDvcyDlpsGhhg
+        FOdwC09RH0qHw7upbT3NOcZNnMURe3smk/GmUvkB+NRNUvMKrfcAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="UsersButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL

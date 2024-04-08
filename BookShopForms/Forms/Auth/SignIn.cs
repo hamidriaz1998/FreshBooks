@@ -44,7 +44,7 @@ namespace BookShopForms.Forms
             if (u.GetType() == "admin")
             {
                 this.Hide();
-                new AdminMain().ShowDialog();
+                new AdminMain((BL.Admin) u).ShowDialog();
                 this.Show();
             }
             //else

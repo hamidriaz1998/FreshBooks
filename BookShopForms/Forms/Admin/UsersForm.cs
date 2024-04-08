@@ -61,7 +61,7 @@ namespace BookShopForms.Forms.Admin
         }
         private bool CheckEmpty()
         {
-            if (string.IsNullOrEmpty(EarningsBox.Text) || string.IsNullOrEmpty(SalaryBox.Text) || string.IsNullOrEmpty(EarningsBox.Text) || string.IsNullOrEmpty(UsernameBox.Text) || string.IsNullOrEmpty(PasswordBox.Text) || CurrencyBox.SelectedIndex == 0)
+            if (string.IsNullOrEmpty(EarningsBox.Text) || string.IsNullOrEmpty(SalaryBox.Text) || string.IsNullOrEmpty(EarningsBox.Text) || string.IsNullOrEmpty(UsernameBox.Text) || string.IsNullOrEmpty(PasswordBox.Text) || CurrencyBox.SelectedIndex < 0)
             {
                 return false;
             }
@@ -88,5 +88,73 @@ namespace BookShopForms.Forms.Admin
             EarningsBox.Text = dt.Rows[SelectedRow]["Earnings"].ToString();
             SalaryBox.Text = dt.Rows[SelectedRow]["Salary"].ToString();
         }
-    }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            if (!CheckEmpty())
+            {
+                MessageBox.Show("Please fill all fields");
+                return;
+            }
+            if (!CheckInt())
+            {
+                MessageBox.Show("Earnings and Salary must be integers");
+                return;
+            }
+            if (UserDL.UserExists(UsernameBox.Text))
+            {
+                MessageBox.Show("Username already exists");
+                return;
+            }
+            Salesman s = new Salesman(UsernameBox.Text, PasswordBox.Text);
+            s.SetCurrency(CurrencyBox.SelectedItem.ToString());
+            s.SetEarnings(int.Parse(EarningsBox.Text));
+            s.SetSalary(int.Parse(SalaryBox.Text));
+            UserDL.AddUser(s);
+            AddDataRow(s);
+        }
+
+        private void updateBtn_Click(object sender, EventArgs e)
+        {
+            if (!CheckEmpty())
+            {
+                MessageBox.Show("Please fill all fields");
+                return;
+            }
+            if (!CheckInt())
+            {
+                MessageBox.Show("Earnings and Salary must be integers");
+                return;
+            }
+            int id = int.Parse(dt.Rows[SelectedRow]["Id"].ToString());
+            Salesman s = (Salesman)UserDL.GetUser(id);
+            if (s == null)
+            {
+                MessageBox.Show("User not found");
+                return;
+            }
+            s.SetUsername(UsernameBox.Text);
+            s.SetPassword(PasswordBox.Text);
+            s.SetCurrency(CurrencyBox.SelectedItem.ToString());
+            s.SetEarnings(int.Parse(EarningsBox.Text));
+            s.SetSalary(int.Parse(SalaryBox.Text));
+            UserDL.UpdateUser(s);
+            // Update the row in the datatable
+            dt.Rows[SelectedRow]["Username"] = s.GetUsername();
+            dt.Rows[SelectedRow]["Password"] = s.GetPassword();
+            dt.Rows[SelectedRow]["Currency"] = s.GetCurrency();
+            dt.Rows[SelectedRow]["Earnings"] = s.GetEarnings();
+            dt.Rows[SelectedRow]["Salary"] = s.GetSalary();
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(dt.Rows[SelectedRow]["Id"].ToString());
+            Salesman s = (Salesman)UserDL.GetUser(id);
+            UserDL.RemoveUser(s);
+            // Delete the row from the datatable
+            dt.Rows.RemoveAt(SelectedRow);
+        }
+
+     }
 }
