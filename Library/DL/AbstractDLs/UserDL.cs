@@ -30,7 +30,7 @@ namespace Library.AbstractDLs
             }
             return false;
         }
-        public bool AddUser(User u)
+        public virtual bool AddUser(User u)
         {
             Users.Add(u);
             if (StoreInSource(u))
@@ -40,7 +40,7 @@ namespace Library.AbstractDLs
             Users.Remove(u);
             return false;
         }
-        public bool AddUser(Salesman s)
+        public virtual bool AddUser(Salesman s)
         {
             Users.Add(s);
             if (StoreInSource(s))

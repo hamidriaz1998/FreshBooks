@@ -3,12 +3,12 @@ using Library.BL;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Library.AbstractDLs;
 namespace Library.DL
 {
-    public class UserFH : IUserDL
+    public class UserFH : UserDL, IUserDL
     {
         private static UserFH Instance;
-        private List<User> Users = new List<User>();
         private string UserFile = "../../../DataFiles/users.txt";
         private string SalesmanFile = "../../../DataFiles/salesmen.txt";
         private UserFH() { }
@@ -20,133 +20,32 @@ namespace Library.DL
             }
             return Instance;
         }
-        public User Login(string username, string password)
-        {
-            foreach (User u in Users)
-            {
-                if (u.GetUsername() == username && u.GetPassword() == password)
-                {
-                    return u;
-                }
-            }
-            return null;
-        }
-        public bool UserExists(string username)
-        {
-            foreach (User u in Users)
-            {
-                if (u.GetUsername() == username)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-        public bool AdminExists()
-        {
-            foreach (User u in Users)
-            {
-                if (u.GetType() == "admin")
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-        public bool AddUser(User u)
+        public override bool AddUser(User u)
         {
             if (u.GetID() == 0)
             {
                 u.SetID(Users.Count + 1);
             }
-            Users.Add(u);
-            if (StoreInFile(u))
-            {
-                return true;
-            }
-            Users.Remove(u);
-            return false;
+            return base.AddUser(u);
         }
-        public bool AddUser(Salesman s)
+        public override bool AddUser(Salesman s)
         {
             if (s.GetID() == 0)
             {
                 s.SetID(Users.Count + 1);
             }
-            Users.Add(s);
-            if (StoreInFile(s))
-            {
-                return true;
-            }
-            Users.Remove(s);
-            return false;
+            return base.AddUser(s);
         }
-        public User GetUser(string username)
+
+        public override void UpdateUser(User u)
         {
-            foreach (User u in Users)
-            {
-                if (u.GetUsername() == username)
-                {
-                    return u;
-                }
-            }
-            return null;
+            RemoveUserFromSource(u);
+            StoreInSource(u);
         }
-        public User GetUser(int id)
+        public override void UpdateUser(Salesman s)
         {
-            foreach (User u in Users)
-            {
-                if (u.GetID() == id)
-                {
-                    return u;
-                }
-            }
-            return null;
-        }
-        public List<User> GetUsers()
-        {
-            return Users;
-        }
-        public float GetTotalEarnings()
-        {
-            float total = 0;
-            foreach (Salesman s in GetSalesmen())
-            {
-                total += s.GetEarnings();
-            }
-            return total;
-        }
-        public List<Salesman> GetSalesmen()
-        {
-            List<Salesman> salesmen = new List<Salesman>();
-            foreach (User u in Users)
-            {
-                if (u.GetType() == "salesman")
-                {
-                    salesmen.Add((Salesman)u);
-                }
-            }
-            return salesmen;
-        }
-        public void RemoveUser(User u)
-        {
-            Users.Remove(u);
-            RemoveFromFile(u);
-        }
-        public void RemoveUser(Salesman s)
-        {
-            Users.Remove(s);
-            RemoveFromFile(s);
-        }
-        public void UpdateUser(User u)
-        {
-            RemoveFromFile(u);
-            StoreInFile(u);
-        }
-        public void UpdateUser(Salesman s)
-        {
-            RemoveFromFile(s);
-            StoreInFile(s);
+            RemoveUserFromSource(s);
+            StoreInSource(s);
         }
         public void LoadUsers()
         {
@@ -201,31 +100,30 @@ namespace Library.DL
                 }
             }
         }
-        private bool StoreInFile(User u)
+        protected override bool StoreInSource(User u)
         {
             StreamWriter sw = new StreamWriter(UserFile, true);
             sw.WriteLine(u.GetID() + ";" + u.GetUsername() + ";" + u.GetPassword() + ";" + u.GetCurrency() + ";" + u.GetType());
             sw.Close();
             return true;
         }
-        private bool StoreInFile(Salesman s)
+        protected override bool StoreInSource(Salesman s)
         {
-            StoreInFile((User)s);
+            StoreInSource((User)s);
             StreamWriter sw = new StreamWriter(SalesmanFile, true);
             sw.WriteLine(s.GetID() + ";" + s.GetEarnings() + ";" + s.GetSalary() + ";" + s.GetSales());
             sw.Close();
             return true;
         }
-        private void RemoveFromFile(User u)
+        protected override void RemoveUserFromSource(User u)
         {
             string[] lines = File.ReadAllLines(UserFile);
             lines = lines.Where(line => !line.StartsWith(u.GetID().ToString())).ToArray();
             File.WriteAllLines(UserFile, lines);
         }
-        private void RemoveFromFile(Salesman s)
+        protected override void RemoveUserFromSource(Salesman s)
         {
-            // Remove salesman from file
-            RemoveFromFile((User)s);
+            RemoveUserFromSource((User)s);
             string[] lines = File.ReadAllLines(SalesmanFile);
             lines = lines.Where(line => !line.StartsWith(s.GetID().ToString())).ToArray();
             File.WriteAllLines(SalesmanFile, lines);
