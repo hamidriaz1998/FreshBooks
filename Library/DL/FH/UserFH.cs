@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 namespace BookShopForms.DL
 {
-    class UserFH : IUserDL
+    public class UserFH : IUserDL
     {
         private static UserFH Instance;
         private List<User> Users = new List<User>();
@@ -150,6 +150,10 @@ namespace BookShopForms.DL
         }
         public void LoadUsers()
         {
+            if (!File.Exists(UserFile) || !File.Exists(SalesmanFile))
+            {
+                return;
+            }
             LoadAdminFromFile();
             LoadSalesmenFromFile();
         }
@@ -224,6 +228,7 @@ namespace BookShopForms.DL
             RemoveFromFile((User)s);
             string[] lines = File.ReadAllLines(SalesmanFile);
             lines = lines.Where(line => !line.StartsWith(s.GetID().ToString())).ToArray();
+            File.WriteAllLines(SalesmanFile, lines);
         }
     }
 }
