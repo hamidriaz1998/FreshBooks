@@ -77,11 +77,12 @@
             this.PasswordBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.PasswordBox.Location = new System.Drawing.Point(342, 230);
             this.PasswordBox.Name = "PasswordBox";
-            this.PasswordBox.PasswordChar = '\0';
+            this.PasswordBox.PasswordChar = '●';
             this.PasswordBox.PlaceholderText = "";
             this.PasswordBox.SelectedText = "";
             this.PasswordBox.Size = new System.Drawing.Size(314, 36);
             this.PasswordBox.TabIndex = 1;
+            this.PasswordBox.UseSystemPasswordChar = true;
             // 
             // RoleBox
             // 
