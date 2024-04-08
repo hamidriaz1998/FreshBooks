@@ -2,14 +2,14 @@ using System.Data.SqlClient;
 using System.Collections.Generic;
 using Library.Utils;
 using Library.BL;
+using Library.AbstractDLs;
 
 namespace Library.DL
 {
-    public class BookDB : IBookDL
+    public class BookDB : BookDL, IBookDL
     {
         private static DBConfig Db = DBConfig.GetInstance();
         private static BookDB Instance;
-        private List<Book> Books = new List<Book>();
         private BookDB()
         {
 
@@ -20,83 +20,6 @@ namespace Library.DL
                 Instance = new BookDB();
             return Instance;
         }
-
-        public void AddBook(Book book)
-        {
-            if (!BookExists(book))
-            {
-                Books.Add(book);
-                StoreInDb(book);
-            }
-        }
-
-        public Book FindBook(int id)
-        {
-            foreach (Book b in Books)
-            {
-                if (b.GetID() == id)
-                {
-                    return b;
-                }
-            }
-            return null;
-        }
-
-        public Book FindBook(string isbn)
-        {
-            foreach (Book b in Books)
-            {
-                if (b.GetISBN() == isbn)
-                {
-                    return b;
-                }
-            }
-            return null;
-        }
-
-        public void UpdateBook(Book book)
-        {
-            if (BookExists(book))
-            {
-                UpdateInDb(book);
-            }
-        }
-
-        public void RemoveBook(Book book)
-        {
-            Books.Remove(book);
-            RemoveFromDB(book);
-        }
-
-        public bool BookExists(Book book)
-        {
-            foreach (Book b in Books)
-            {
-                if (b.GetISBN() == book.GetISBN())
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        public bool BookExists(string isbn)
-        {
-            foreach (Book b in Books)
-            {
-                if (b.GetISBN() == isbn)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        public List<Book> GetBooks()
-        {
-            return Books;
-        }
-
         public void LoadBooks()
         {
             SqlCommand cmd = new SqlCommand("SELECT * FROM Book", Db.GetConnection());
@@ -117,7 +40,7 @@ namespace Library.DL
             reader.Close();
         }
 
-        private void StoreInDb(Book book)
+        protected override void StoreInSource(Book book)
         {
             string query = "INSERT INTO Book (Title, Author, ISBN, PublicationYear, Price, Stock, MinStock, CopiesSold) Output inserted.Id VALUES (@Title, @Author, @ISBN, @PublicationYear, @Price, @Stock, @MinStock, @CopiesSold)";
             SqlCommand cmd = new SqlCommand(query, Db.GetConnection());
@@ -133,7 +56,7 @@ namespace Library.DL
             book.SetID(id);
         }
 
-        public void UpdateInDb(Book book)
+        protected override void UpdateInSource(Book book)
         {
             string query = "UPDATE Book SET Title = @Title, Author = @Author, ISBN = @ISBN, PublicationYear = @PublicationYear, Price = @Price, Stock = @Stock, MinStock = @MinStock, CopiesSold = @CopiesSold WHERE Id = @Id";
             SqlCommand cmd = new SqlCommand(query, Db.GetConnection());
@@ -149,7 +72,7 @@ namespace Library.DL
             cmd.ExecuteNonQuery();
         }
 
-        private void RemoveFromDB(Book book)
+        protected override void RemoveFromSource(Book book)
         {
             string query = "DELETE FROM Book WHERE Id = @Id";
             SqlCommand cmd = new SqlCommand(query, Db.GetConnection());
