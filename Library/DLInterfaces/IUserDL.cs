@@ -11,6 +11,7 @@ namespace BookShopForms.DL
         bool AddUser(Salesman s);
         User GetUser(string username);
         User GetUser(int id);
+        float GetTotalEarnings();
         List<User> GetUsers();
         List<Salesman> GetSalesmen();
         void RemoveUser(User u);

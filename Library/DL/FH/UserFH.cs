@@ -106,6 +106,15 @@ namespace BookShopForms.DL
         {
             return Users;
         }
+        public float GetTotalEarnings()
+        {
+            float total = 0;
+            foreach (Salesman s in GetSalesmen())
+            {
+                total += s.GetEarnings();
+            }
+            return total;
+        }
         public List<Salesman> GetSalesmen()
         {
             List<Salesman> salesmen = new List<Salesman>();
