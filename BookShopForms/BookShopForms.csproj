@@ -190,7 +190,7 @@
     <None Include="Resources\icons8-user-48.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Books.txt" />
+    <Content Include="DataFiles\Books.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

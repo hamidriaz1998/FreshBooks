@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BookShopForms;
+using Library.BL;
 namespace BookShopForms.Forms.AdminForms
 {
     public partial class AdminMain : Form
     {
-        public static BL.Admin LoggedInUser;
-        public AdminMain(BL.Admin admin)
+        public static Admin LoggedInUser;
+        public AdminMain(Admin admin)
         {
             LoggedInUser = admin;
             InitializeComponent();

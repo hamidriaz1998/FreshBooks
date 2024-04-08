@@ -7,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BookShopForms.BL;
-using BookShopForms.DL;
+using Library.BL;
+using Library.DL;
 
 namespace BookShopForms.Forms.AdminForms
 {

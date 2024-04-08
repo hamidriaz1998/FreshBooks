@@ -1,5 +1,4 @@
-﻿using BookShopForms.BL;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System;
 using System.ComponentModel;
 using System.Data;
@@ -8,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BookShopForms.DL;
+using Library.BL;
+using Library.DL;
 
 namespace BookShopForms.Forms.AdminForms
 {
@@ -140,7 +140,6 @@ namespace BookShopForms.Forms.AdminForms
             s.SetEarnings(int.Parse(EarningsBox.Text));
             s.SetSalary(int.Parse(SalaryBox.Text));
             UserDL.UpdateUser(s);
-            // Update the row in the datatable
             dt.Rows[SelectedRow]["Username"] = s.GetUsername();
             dt.Rows[SelectedRow]["Password"] = s.GetPassword();
             dt.Rows[SelectedRow]["Currency"] = s.GetCurrency();
@@ -153,7 +152,6 @@ namespace BookShopForms.Forms.AdminForms
             int id = int.Parse(dt.Rows[SelectedRow]["Id"].ToString());
             Salesman s = (Salesman)UserDL.GetUser(id);
             UserDL.RemoveUser(s);
-            // Delete the row from the datatable
             dt.Rows.RemoveAt(SelectedRow);
         }
 

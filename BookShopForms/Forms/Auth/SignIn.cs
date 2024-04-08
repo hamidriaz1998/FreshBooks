@@ -8,8 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BookShopForms.BL;
-using BookShopForms.DL;
+using Library.BL;
+using Library.DL;
 
 namespace BookShopForms.Forms
 {
@@ -44,7 +44,7 @@ namespace BookShopForms.Forms
             if (u.GetType() == "admin")
             {
                 this.Hide();
-                new AdminMain((BL.Admin) u).ShowDialog();
+                new AdminMain((Admin) u).ShowDialog();
                 this.Show();
             }
             //else
