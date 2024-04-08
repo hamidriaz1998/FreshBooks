@@ -9,12 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Library.BL;
 using Library.DL;
+using Library.Utils;
 
 namespace BookShopForms
 {
     public partial class SignUp : Form
     {
         IUserDL UserDL = ObjectHandler.GetUserDL();
+        Validations validations = ObjectHandler.GetValidations();
         public SignUp()
         {
             InitializeComponent();
@@ -39,6 +41,16 @@ namespace BookShopForms
             string role = RoleBox.SelectedItem.ToString();
             string username = UsernameBox.Text;
             string password = PasswordBox.Text;
+            if (!validations.IsPasswordValid(password))
+            {
+                MessageBox.Show("Your password needs to be at least 6 characters long and include both letters and numbers. Please note that ',' and ';' are not allowed.");
+                return;
+            }
+            if (!validations.IsUsernameValid(username))
+            {
+                MessageBox.Show("Username must be between 5 and 20 characters long and can only contain letters and numbers.");
+                return;
+            }
             if (UserDL.UserExists(username))
             {
                 MessageBox.Show("User already exists");

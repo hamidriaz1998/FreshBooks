@@ -1,4 +1,5 @@
 ﻿using Library.DL;
+using Library.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace BookShopForms
 {
     internal class ObjectHandler
     {
+        private static Validations validations = Validations.GetInstance();
 
         //private static IUserDL UserDL = UserDB.GetInstance();
         //private static IBookDL BookDL = BookDB.GetInstance();
@@ -24,6 +26,10 @@ namespace BookShopForms
         public static IBookDL GetBookDL()
         {
             return BookDL;
+        }
+        public static Validations GetValidations()
+        {
+            return validations;
         }
     }
 }
