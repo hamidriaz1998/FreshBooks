@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using BookShopForms.BL;
 using BookShopForms.DL;
 
-namespace BookShopForms.Forms.Admin
+namespace BookShopForms.Forms.AdminForms
 {
     public partial class BookForm : Form
     {

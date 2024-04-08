@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BookShopForms;
-namespace BookShopForms.Forms.Admin
+namespace BookShopForms.Forms.AdminForms
 {
     public partial class AdminMain : Form
     {

@@ -1,4 +1,4 @@
-﻿using BookShopForms.Forms.Admin;
+﻿using BookShopForms.Forms.AdminForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
