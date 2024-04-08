@@ -45,7 +45,7 @@
     <Compile Include="BL\Book.cs" />
     <Compile Include="BL\Salesman.cs" />
     <Compile Include="BL\User.cs" />
-    <Compile Include="DL\DB\UserDL.cs"/>
+    <Compile Include="DL\DB\UserDB.cs"/>
     <Compile Include="DL\DB\BookDB.cs"/>
     <Compile Include="DL\FH\BookFH.cs"/>
     <Compile Include="Utils\DBConfig.cs"/>

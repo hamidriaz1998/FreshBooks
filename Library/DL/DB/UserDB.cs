@@ -6,16 +6,16 @@ using BookShopForms.BL;
 
 namespace BookShopForms.DL
 {
-    public class UserDL : IUserDL
+    public class UserDB : IUserDL
     {
         private DBConfig Db = DBConfig.GetInstance();
-        private static UserDL Instance;
-        private UserDL() { }
-        public static UserDL GetInstance()
+        private static UserDB Instance;
+        private UserDB() { }
+        public static UserDB GetInstance()
         {
             if (Instance == null)
             {
-                Instance = new UserDL();
+                Instance = new UserDB();
             }
             return Instance;
         }
