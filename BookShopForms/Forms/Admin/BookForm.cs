@@ -15,7 +15,7 @@ namespace BookShopForms.Forms.Admin
     public partial class BookForm : Form
     {
         private DataTable dt = new DataTable();
-        private IBookDL BookDL = BookFH.GetInstance();
+        private IBookDL BookDL = ObjectHandler.GetBookDL();
         int SelectedRow = 0;
         public BookForm()
         {

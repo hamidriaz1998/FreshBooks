@@ -14,6 +14,7 @@ namespace BookShopForms.Forms.Admin
 {
     public partial class UsersForm : Form
     {
+        IUserDL UserDL = ObjectHandler.GetUserDL();
         private DataTable dt = new DataTable();
         private int SelectedRow = 0;
         public UsersForm()

@@ -15,6 +15,7 @@ namespace BookShopForms.Forms
 {
     public partial class SignIn : Form
     {
+        IUserDL UserDL = ObjectHandler.GetUserDL();
         public SignIn()
         {
             InitializeComponent();
