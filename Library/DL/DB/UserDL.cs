@@ -6,11 +6,21 @@ using BookShopForms.BL;
 
 namespace BookShopForms.DL
 {
-    public class UserDL
+    public class UserDL : IUserDL
     {
-        private static List<User> Users = new List<User>();
-        private static DBConfig Db = DBConfig.GetInstance();
-        public static bool UserExists(string username)
+        private DBConfig Db = DBConfig.GetInstance();
+        private static UserDL Instance;
+        private UserDL() { }
+        public static UserDL GetInstance()
+        {
+            if (Instance == null)
+            {
+                Instance = new UserDL();
+            }
+            return Instance;
+        }
+        private List<User> Users = new List<User>();
+        public bool UserExists(string username)
         {
             foreach (User u in Users)
             {
@@ -21,7 +31,7 @@ namespace BookShopForms.DL
             }
             return false;
         }
-        public static bool AdminExists()
+        public bool AdminExists()
         {
             foreach (User u in Users)
             {
@@ -32,7 +42,7 @@ namespace BookShopForms.DL
             }
             return false;
         }
-        public static bool AddUser(User u)
+        public bool AddUser(User u)
         {
             Users.Add(u);
             if (StoreInDb(u))
@@ -42,7 +52,7 @@ namespace BookShopForms.DL
             Users.Remove(u);
             return false;
         }
-        public static bool AddUser(Salesman s)
+        public bool AddUser(Salesman s)
         {
             Users.Add(s);
             if (StoreInDb(s))
@@ -52,7 +62,7 @@ namespace BookShopForms.DL
             Users.Remove(s);
             return false;
         }
-        public static User Login(string username, string password)
+        public User Login(string username, string password)
         {
             foreach (User u in Users)
             {
@@ -63,7 +73,7 @@ namespace BookShopForms.DL
             }
             return null;
         }
-        public static User GetUser(string username)
+        public User GetUser(string username)
         {
             foreach (User u in Users)
             {
@@ -74,11 +84,11 @@ namespace BookShopForms.DL
             }
             return null;
         }
-        public static List<User> GetUsers()
+        public List<User> GetUsers()
         {
             return Users;
         }
-        public static List<Salesman> GetSalesmen()
+        public List<Salesman> GetSalesmen()
         {
             List<Salesman> salesmen = new List<Salesman>();
             foreach (User u in Users)
@@ -90,7 +100,7 @@ namespace BookShopForms.DL
             }
             return salesmen;
         }
-        public static void RemoveUser(User u)
+        public void RemoveUser(User u)
         {
             Users.Remove(u);
             string query = "DELETE FROM Users WHERE Id = @Id";
@@ -98,7 +108,7 @@ namespace BookShopForms.DL
             cmd.Parameters.AddWithValue("@Id", u.GetID());
             Db.ExecuteCommand(cmd);
         }
-        public static void RemoveUser(Salesman s)
+        public void RemoveUser(Salesman s)
         {
             Users.Remove(s);
             string query = "DELETE FROM Salesman WHERE UserId = @Id";
@@ -107,7 +117,7 @@ namespace BookShopForms.DL
             Db.ExecuteCommand(cmd);
             RemoveUser((User)s);
         }
-        public static void UpdateUser(User u)
+        public void UpdateUser(User u)
         {
             string query = "UPDATE Users SET Username = @Username, Password = @Password, Currency = @Currency WHERE Id = @Id";
             SqlCommand cmd = new SqlCommand(query);
@@ -117,7 +127,7 @@ namespace BookShopForms.DL
             cmd.Parameters.AddWithValue("@Id", u.GetID());
             Db.ExecuteCommand(cmd);
         }
-        public static void UpdateUser(Salesman s)
+        public void UpdateUser(Salesman s)
         {
             string query = "UPDATE Salesman SET Earnings = @Earnings, Salary = @Salary, Sales = @Sales WHERE UserId = @Id";
             SqlCommand cmd = new SqlCommand(query);
@@ -128,7 +138,7 @@ namespace BookShopForms.DL
             UpdateUser((User)s);
             Db.ExecuteCommand(cmd);
         }
-        public static bool StoreInDb(User u)
+        public bool StoreInDb(User u)
         {
             try
             {
@@ -147,7 +157,7 @@ namespace BookShopForms.DL
                 return false;
             }
         }
-        public static bool StoreInDb(Salesman s)
+        public bool StoreInDb(Salesman s)
         {
             try
             {
@@ -166,12 +176,12 @@ namespace BookShopForms.DL
                 return false;
             }
         }
-        public static void LoadFromDb()
+        public void Load()
         {
             LoadAdminFromDb();
             LoadSalesmenFromDb();
         }
-        private static void LoadAdminFromDb()
+        private void LoadAdminFromDb()
         {
             string query = "SELECT * FROM Users where Type = 'admin'";
             SqlCommand cmd = new SqlCommand(query, Db.GetConnection());
@@ -187,7 +197,7 @@ namespace BookShopForms.DL
             }
             reader.Close();
         }
-        private static void LoadSalesmenFromDb()
+        private void LoadSalesmenFromDb()
         {
             string query = "SELECT u.Id,u.Username,u.Password,u.Currency,s.Earnings,s.Salary,s.Sales FROM Users u Join Salesman s on u.Id = s.UserId where Type = 'salesman'";
             SqlDataAdapter adapter = new SqlDataAdapter(query, Db.GetConnection());

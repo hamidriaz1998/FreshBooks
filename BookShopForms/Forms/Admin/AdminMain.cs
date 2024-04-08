@@ -39,7 +39,7 @@ namespace BookShopForms.Forms.Admin
 
         private void DashBoardButton_Click(object sender, EventArgs e)
         {
-LoadForm(new DashBoard());
+            LoadForm(new DashBoard());
         }
 
         private void BooksButton_Click(object sender, EventArgs e)

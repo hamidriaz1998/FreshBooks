@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using BookShopForms.BL;
 
 namespace BookShopForms.DL
@@ -7,6 +8,15 @@ namespace BookShopForms.DL
         bool UserExists(string username);
         bool AdminExists();
         bool AddUser(User u);
+        bool AddUser(Salesman s);
+        User GetUser(string username);
+        List<User> GetUsers();
+        List<Salesman> GetSalesmen();
+        void RemoveUser(User u);
+        void RemoveUser(Salesman s);
+        void UpdateUser(User u);
+        void UpdateUser(Salesman s);
+        void Load();
         User Login(string username, string password);
     }
 }
