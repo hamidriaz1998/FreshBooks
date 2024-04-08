@@ -182,6 +182,7 @@
             this.PassUpdateBtn.Size = new System.Drawing.Size(90, 32);
             this.PassUpdateBtn.TabIndex = 42;
             this.PassUpdateBtn.Text = "Update";
+            this.PassUpdateBtn.Click += new System.EventHandler(this.PassUpdateBtn_Click);
             // 
             // CurrencyUpdateBtn
             // 
@@ -198,6 +199,7 @@
             this.CurrencyUpdateBtn.Size = new System.Drawing.Size(90, 32);
             this.CurrencyUpdateBtn.TabIndex = 43;
             this.CurrencyUpdateBtn.Text = "Update";
+            this.CurrencyUpdateBtn.Click += new System.EventHandler(this.CurrencyUpdateBtn_Click);
             // 
             // Settings
             // 
@@ -217,6 +219,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Settings";
             this.Text = "Settings";
+            this.Load += new System.EventHandler(this.Settings_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
