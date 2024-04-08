@@ -2,6 +2,7 @@ using BookShopForms.DL;
 using BookShopForms.BL;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 namespace BookShopForms.DL
 {
     class UserFH : IUserDL
@@ -149,15 +150,52 @@ namespace BookShopForms.DL
         }
         public void LoadUsers()
         {
-            // Load users from file
+            LoadAdminFromFile();
+            LoadSalesmenFromFile();
         }
-        private void LoadUsersFromFile()
+        private void LoadAdminFromFile()
         {
-            // Load users from file
+            string[] lines = File.ReadAllLines(UserFile);
+            foreach (string line in lines)
+            {
+                string[] data = line.Split(';');
+                if (data[4] == "admin")
+                {
+                    User u = new Admin(data[1], data[2]);
+                    u.SetID(int.Parse(data[0]));
+                    u.SetCurrency(data[3]);
+                    Users.Add(u);
+                    return;
+                }
+            }
         }
         private void LoadSalesmenFromFile()
         {
-            // Load salesmen from file
+            string[] UsersFileLines = File.ReadAllLines(UserFile);
+            string[] SalesmenFileLines = File.ReadAllLines(SalesmanFile);
+            Dictionary<int, string[]> salesmenData = new Dictionary<int, string[]>();
+            foreach (string sline in SalesmenFileLines)
+            {
+                string[] sdata = sline.Split(';');
+                salesmenData[int.Parse(sdata[0])] = sdata;
+            }
+            foreach (string line in UsersFileLines)
+            {
+                string[] data = line.Split(';');
+                if (data[4] == "salesman")
+                {
+                    Salesman s = new Salesman(data[1], data[2]);
+                    s.SetID(int.Parse(data[0]));
+                    s.SetCurrency(data[3]);
+                    if (salesmenData.TryGetValue(s.GetID(), out string[] sdata))
+                    {
+                        s.SetEarnings(float.Parse(sdata[1]));
+                        s.SetSalary(float.Parse(sdata[2]));
+                        s.SetSales(int.Parse(sdata[3]));
+                    }
+                    Users.Add(s);
+                }
+            }
         }
         private bool StoreInFile(User u)
         {
@@ -176,11 +214,16 @@ namespace BookShopForms.DL
         }
         private void RemoveFromFile(User u)
         {
-            // Remove user from file
+            string[] lines = File.ReadAllLines(UserFile);
+            lines = lines.Where(line => !line.StartsWith(u.GetID().ToString())).ToArray();
+            File.WriteAllLines(UserFile, lines);
         }
         private void RemoveFromFile(Salesman s)
         {
             // Remove salesman from file
+            RemoveFromFile((User)s);
+            string[] lines = File.ReadAllLines(SalesmanFile);
+            lines = lines.Where(line => !line.StartsWith(s.GetID().ToString())).ToArray();
         }
     }
 }
