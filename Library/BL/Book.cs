@@ -8,7 +8,6 @@ namespace Library.BL
 {
     public class Book
     {
-        private static DBConfig Db = DBConfig.GetInstance();
         private int ID;
         private string Title;
         private string Author;
