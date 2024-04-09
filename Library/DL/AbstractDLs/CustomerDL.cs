@@ -13,6 +13,11 @@ namespace Library.AbstractDLs
             Customers.Add(customer);
             StoreInSource(customer);
         }
+        public void AddOrder(Customer customer, Order order)
+        {
+            customer.AddOrder(order);
+            StoreOrder(order, customer.GetID());
+        }
         public bool CustomerExists(int id)
         {
             foreach (Customer c in Customers)

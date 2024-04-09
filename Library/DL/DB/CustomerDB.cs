@@ -78,11 +78,12 @@ namespace Library.DL
         }
         protected override void StoreOrder(Order order, int customerID)
         {
-            string query = "Insert into Orders (CustomerID, BookID, Quantity, Date) values (@CustomerID, @BookID, @Quantity, @Date)";
+            string query = "Insert into Orders (CustomerID, BookID, Quantity,Total, Date) values (@CustomerID, @BookID,@Total, @Quantity, @Date)";
             SqlCommand command = new SqlCommand(query, dB.GetConnection());
             command.Parameters.AddWithValue("@CustomerID", customerID);
             command.Parameters.AddWithValue("@BookID", order.GetBook().GetID());
             command.Parameters.AddWithValue("@Quantity", order.GetQuantity());
+            command.Parameters.AddWithValue("@Total", order.GetTotal());
             command.Parameters.AddWithValue("@Date", DateTime.Parse(order.GetDate()));
             command.ExecuteNonQuery();
         }
