@@ -6,35 +6,36 @@ namespace Library.BL
 {
     public class Order
     {
-        private int ID;
         private Book Book;
         private int Quantity;
+        private int Total;
         private string Date;
-        private int CustomerId;
-        public Order(int id, Book book, int quantity, int customerId)
+        public Order(Book book, int quantity)
         {
-            ID = id;
             Book = book;
             Quantity = quantity;
-            // Date in format of sql server
             Date = DateTime.Now.ToString("dd-MM-yyyy");
-            CustomerId = customerId;
+            CalculateTotal();
         }
-        public Order(Book book, int quantity, int customerId)
+        public Order(Book book, int quantity, string date)
         {
             Book = book;
             Quantity = quantity;
-            Date = DateTime.Now.ToString("dd-MM-yyyy");
-            CustomerId = customerId;
+            Date = date;
+            CalculateTotal();
+        }
+        public void CalculateTotal()
+        {
+            Total = Book.GetPrice() * Quantity;
         }
         // Getters and Setters
-        public int GetID()
+        public int GetTotal()
         {
-            return ID;
+            return Total;
         }
-        public void SetID(int id)
+        public void SetTotal(int total)
         {
-            ID = id;
+            Total = total;
         }
         public Book GetBook()
         {
@@ -59,14 +60,6 @@ namespace Library.BL
         public void SetDate(string date)
         {
             Date = date;
-        }
-        public int GetCustomerId()
-        {
-            return CustomerId;
-        }
-        public void SetCustomerId(int customerId)
-        {
-            CustomerId = customerId;
         }
     }
 }

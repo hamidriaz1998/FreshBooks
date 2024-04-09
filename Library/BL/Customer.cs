@@ -69,5 +69,21 @@ namespace Library.BL
         {
             Address = address;
         }
+        public List<Order> GetOrders()
+        {
+            return Orders;
+        }
+        public void SetOrders(List<Order> orders)
+        {
+            Orders = orders;
+        }
+        public void AddOrder(Order order)
+        {
+            Orders.Add(order);
+        }
+        public void RemoveOrder(Order order)
+        {
+            Orders.Remove(order);
+        }
     }
 }

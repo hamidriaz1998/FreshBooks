@@ -3,11 +3,13 @@ using Library.AbstractDLs;
 using System.Data;
 using System.Data.SqlClient;
 using Library.Utils;
+using System;
 
 namespace Library.DL
 {
     public class CustomerDB : CustomerDL, ICustomerDL
     {
+        private IBookDL bookDL = BookDB.GetInstance();
         private DBConfig dB = DBConfig.GetInstance();
         private static CustomerDB Instance;
         public static CustomerDB GetInstance()
@@ -34,6 +36,7 @@ namespace Library.DL
                 string address = row["Address"].ToString();
                 Customer customer = new Customer(id, name, email, phone, address);
                 Customers.Add(customer);
+                LoadOrders(customer);
             }
         }
         protected override void StoreInSource(Customer customer)
@@ -46,9 +49,53 @@ namespace Library.DL
             command.Parameters.AddWithValue("@Address", customer.GetAddress());
             int customerId = (int)command.ExecuteScalar();
             customer.SetID(customerId);
+            StoreOrders(customer);
+        }
+        protected override void LoadOrders(Customer customer)
+        {
+            string query = "Select * from Orders where CustomerID = @CustomerID";
+            SqlCommand command = new SqlCommand(query, dB.GetConnection());
+            command.Parameters.AddWithValue("@CustomerID", customer.GetID());
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            foreach (DataRow row in table.Rows)
+            {
+                int bookID = int.Parse(row["BookID"].ToString());
+                int quantity = int.Parse(row["Quantity"].ToString());
+                string date = row["Date"].ToString();
+                Book book = bookDL.FindBook(bookID);
+                Order order = new Order(book, quantity, date);
+                customer.AddOrder(order);
+            }
+        }
+        protected override void StoreOrders(Customer customer)
+        {
+            foreach (Order order in customer.GetOrders())
+            {
+                StoreOrder(order, customer.GetID());
+            }
+        }
+        protected override void StoreOrder(Order order, int customerID)
+        {
+            string query = "Insert into Orders (CustomerID, BookID, Quantity, Date) values (@CustomerID, @BookID, @Quantity, @Date)";
+            SqlCommand command = new SqlCommand(query, dB.GetConnection());
+            command.Parameters.AddWithValue("@CustomerID", customerID);
+            command.Parameters.AddWithValue("@BookID", order.GetBook().GetID());
+            command.Parameters.AddWithValue("@Quantity", order.GetQuantity());
+            command.Parameters.AddWithValue("@Date", DateTime.Parse(order.GetDate()));
+            command.ExecuteNonQuery();
+        }
+        protected override void DeleteOrders(Customer customer)
+        {
+            string query = "Delete from Orders where CustomerID = @CustomerID";
+            SqlCommand command = new SqlCommand(query, dB.GetConnection());
+            command.Parameters.AddWithValue("@CustomerID", customer.GetID());
+            command.ExecuteNonQuery();
         }
         protected override void RemoveFromSource(Customer customer)
         {
+            DeleteOrders(customer);
             string query = "Delete from Customers where ID = @ID";
             SqlCommand command = new SqlCommand(query, dB.GetConnection());
             command.Parameters.AddWithValue("@ID", customer.GetID());

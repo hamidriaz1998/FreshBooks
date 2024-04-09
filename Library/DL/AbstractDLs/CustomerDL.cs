@@ -70,5 +70,9 @@ namespace Library.AbstractDLs
         protected abstract void RemoveFromSource(Customer customer);
         protected abstract void UpdateInSource(Customer customer);
         public abstract void LoadCustomers();
+        protected abstract void DeleteOrders(Customer customer);
+        protected abstract void LoadOrders(Customer customer);
+        protected abstract void StoreOrder(Order order, int customerID);
+        protected abstract void StoreOrders(Customer customer);
     }
 }
