@@ -8,8 +8,21 @@ namespace Library.AbstractDLs
         protected List<Order> Orders = new List<Order>();
         public virtual void AddOrder(Order order)
         {
+            if (OrderExists(order.GetID()))
+                return;
             Orders.Add(order);
             StoreInSource(order);
+        }
+        public bool OrderExists(int id)
+        {
+            foreach (Order o in Orders)
+            {
+                if (o.GetID() == id)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
         public Order FindOrder(int id)
         {

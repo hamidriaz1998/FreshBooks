@@ -12,5 +12,6 @@ namespace Library.DL
         List<Order> GetOrdersByCustomer(int customerId);
         List<Order> GetOrdersByBook(int bookId);
         void LoadOrders();
+        bool OrderExists(int id);
     }
 }

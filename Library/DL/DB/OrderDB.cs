@@ -21,14 +21,6 @@ namespace Library.DL
             }
             return Instance;
         }
-        public override void AddOrder(Order order)
-        {
-            if (order.GetID() == 0)
-            {
-                order.SetID(Orders.Count + 1);
-            }
-            base.AddOrder(order);
-        }
         public void LoadOrders()
         {
             string query = "Select * from Orders";
@@ -51,13 +43,14 @@ namespace Library.DL
         }
         protected override void StoreInSource(Order order)
         {
-            string query = "Insert into Orders (BookID, Quantity, Date, CustomerID) values (@BookID, @Quantity, @Date, @CustomerID)";
+            string query = "Insert into Orders (BookID, Quantity, Date, CustomerID) Output Inserted.ID values (@BookID, @Quantity, @Date, @CustomerID)";
             SqlCommand command = new SqlCommand(query, dB.GetConnection());
             command.Parameters.AddWithValue("@BookID", order.GetBook().GetID());
             command.Parameters.AddWithValue("@Quantity", order.GetQuantity());
             command.Parameters.AddWithValue("@Date", DateTime.Parse(order.GetDate()));
             command.Parameters.AddWithValue("@CustomerID", order.GetCustomerId());
-            command.ExecuteNonQuery();
+            int orderId = (int)command.ExecuteScalar();
+            order.SetID(orderId);
         }
         protected override void RemoveFromSource(Order order)
         {
