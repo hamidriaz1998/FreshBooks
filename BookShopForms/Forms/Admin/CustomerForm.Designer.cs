@@ -103,6 +103,7 @@
             this.dataGridView1.ThemeStyle.RowsStyle.Height = 22;
             this.dataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // DeleteButton
             // 
@@ -163,7 +164,7 @@
             this.AddressBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.AddressBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.AddressBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.AddressBox.Location = new System.Drawing.Point(483, 86);
+            this.AddressBox.Location = new System.Drawing.Point(484, 121);
             this.AddressBox.Name = "AddressBox";
             this.AddressBox.PasswordChar = '\0';
             this.AddressBox.PlaceholderText = "";
@@ -176,7 +177,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(54)))), ((int)(((byte)(63)))));
-            this.label5.Location = new System.Drawing.Point(402, 88);
+            this.label5.Location = new System.Drawing.Point(403, 123);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(72, 20);
             this.label5.TabIndex = 47;
@@ -193,7 +194,7 @@
             this.PhoneBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.PhoneBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.PhoneBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.PhoneBox.Location = new System.Drawing.Point(134, 88);
+            this.PhoneBox.Location = new System.Drawing.Point(135, 123);
             this.PhoneBox.Name = "PhoneBox";
             this.PhoneBox.PasswordChar = '\0';
             this.PhoneBox.PlaceholderText = "";
@@ -206,7 +207,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(54)))), ((int)(((byte)(63)))));
-            this.label4.Location = new System.Drawing.Point(49, 88);
+            this.label4.Location = new System.Drawing.Point(58, 123);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(59, 20);
             this.label4.TabIndex = 45;
@@ -223,7 +224,7 @@
             this.EmailBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.EmailBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.EmailBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.EmailBox.Location = new System.Drawing.Point(483, 32);
+            this.EmailBox.Location = new System.Drawing.Point(484, 67);
             this.EmailBox.Name = "EmailBox";
             this.EmailBox.PasswordChar = '\0';
             this.EmailBox.PlaceholderText = "";
@@ -236,7 +237,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(54)))), ((int)(((byte)(63)))));
-            this.label1.Location = new System.Drawing.Point(402, 32);
+            this.label1.Location = new System.Drawing.Point(403, 67);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 20);
             this.label1.TabIndex = 42;
@@ -253,7 +254,7 @@
             this.NameBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.NameBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.NameBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.NameBox.Location = new System.Drawing.Point(134, 32);
+            this.NameBox.Location = new System.Drawing.Point(135, 67);
             this.NameBox.Name = "NameBox";
             this.NameBox.PasswordChar = '\0';
             this.NameBox.PlaceholderText = "";
@@ -266,7 +267,7 @@
             this.BookLabel.AutoSize = true;
             this.BookLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BookLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(54)))), ((int)(((byte)(63)))));
-            this.BookLabel.Location = new System.Drawing.Point(57, 32);
+            this.BookLabel.Location = new System.Drawing.Point(58, 67);
             this.BookLabel.Name = "BookLabel";
             this.BookLabel.Size = new System.Drawing.Size(51, 20);
             this.BookLabel.TabIndex = 40;
@@ -292,6 +293,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CustomerForm";
             this.Text = "CustomerForm";
+            this.Load += new System.EventHandler(this.CustomerForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
