@@ -12,13 +12,14 @@ namespace BookShopForms
     {
         private static Validations validations = Validations.GetInstance();
 
-        //private static IUserDL UserDL = UserDB.GetInstance();
-        //private static IBookDL BookDL = BookDB.GetInstance();
+        private static IUserDL UserDL = UserDB.GetInstance();
+        private static IBookDL BookDL = BookDB.GetInstance();
+        private static ICustomerDL CustomerDL = CustomerDB.GetInstance();
 
         // Uncomment the following lines to use the file handler
 
-        private static IBookDL BookDL = BookFH.GetInstance();
-        private static IUserDL UserDL = UserFH.GetInstance();
+        //private static IBookDL BookDL = BookFH.GetInstance();
+        //private static IUserDL UserDL = UserFH.GetInstance();
         public static IUserDL GetUserDL()
         {
             return UserDL;
@@ -26,6 +27,10 @@ namespace BookShopForms
         public static IBookDL GetBookDL()
         {
             return BookDL;
+        }
+        public static ICustomerDL GetCustomerDL()
+        {
+            return CustomerDL;
         }
         public static Validations GetValidations()
         {
