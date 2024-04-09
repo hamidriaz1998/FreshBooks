@@ -49,7 +49,6 @@
     <Compile Include="BL\Order.cs" />
     <Compile Include="DL\DB\UserDB.cs"/>
     <Compile Include="DL\DB\BookDB.cs"/>
-    <Compile Include="DL\DB\OrderDB.cs"/>
     <Compile Include="DL\DB\CustomerDB.cs"/>
     <Compile Include="DL\FH\BookFH.cs"/>
     <Compile Include="DL\FH\UserFH.cs"/>
@@ -58,11 +57,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DLInterfaces\IUserDL.cs" />
     <Compile Include="DLInterfaces\IBookDL.cs" />
-    <Compile Include="DLInterfaces\IOrderDL.cs" />
     <Compile Include="DLInterfaces\ICustomerDL.cs" />
     <Compile Include="DL\AbstractDLs\UserDL.cs" />
     <Compile Include="DL\AbstractDLs\BookDL.cs" />
-    <Compile Include="DL\AbstractDLs\OrderDL.cs" />
     <Compile Include="DL\AbstractDLs\CustomerDL.cs" />
   </ItemGroup>
   <ItemGroup />

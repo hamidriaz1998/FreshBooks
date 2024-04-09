@@ -11,4 +11,5 @@ interface ICustomerDL
     void LoadCustomers();
     bool CustomerExists(int id);
     bool CustomerExists(Customer customer);
+    void AddOrder(Customer customer, Order order);
 }
