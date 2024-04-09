@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Library.AbstractDLs
 {
-    abstract class CustomerDL
+    public abstract class CustomerDL
     {
         protected List<Customer> Customers = new List<Customer>();
         public virtual void AddCustomer(Customer customer)

@@ -50,6 +50,7 @@
     <Compile Include="DL\DB\UserDB.cs"/>
     <Compile Include="DL\DB\BookDB.cs"/>
     <Compile Include="DL\DB\OrderDB.cs"/>
+    <Compile Include="DL\DB\CustomerDB.cs"/>
     <Compile Include="DL\FH\BookFH.cs"/>
     <Compile Include="DL\FH\UserFH.cs"/>
     <Compile Include="Utils\DBConfig.cs"/>
