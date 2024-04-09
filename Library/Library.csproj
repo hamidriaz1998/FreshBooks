@@ -58,9 +58,11 @@
     <Compile Include="DLInterfaces\IUserDL.cs" />
     <Compile Include="DLInterfaces\IBookDL.cs" />
     <Compile Include="DLInterfaces\IOrderDL.cs" />
+    <Compile Include="DLInterfaces\ICustomerDL.cs" />
     <Compile Include="DL\AbstractDLs\UserDL.cs" />
     <Compile Include="DL\AbstractDLs\BookDL.cs" />
     <Compile Include="DL\AbstractDLs\OrderDL.cs" />
+    <Compile Include="DL\AbstractDLs\CustomerDL.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
