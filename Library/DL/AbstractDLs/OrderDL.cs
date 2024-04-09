@@ -22,6 +22,30 @@ namespace Library.AbstractDLs
             }
             return null;
         }
+        public List<Order> GetOrdersByCustomer(int customerId)
+        {
+            List<Order> orders = new List<Order>();
+            foreach (Order o in Orders)
+            {
+                if (o.GetCustomerId() == customerId)
+                {
+                    orders.Add(o);
+                }
+            }
+            return orders;
+        }
+        public List<Order> GetOrdersByBook(int bookId)
+        {
+            List<Order> orders = new List<Order>();
+            foreach (Order o in Orders)
+            {
+                if (o.GetBook().GetID() == bookId)
+                {
+                    orders.Add(o);
+                }
+            }
+            return orders;
+        }
         public void RemoveOrder(Order order)
         {
             Orders.Remove(order);

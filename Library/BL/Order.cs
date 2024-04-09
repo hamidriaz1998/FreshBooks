@@ -7,21 +7,25 @@ namespace Library.BL
     public class Order
     {
         private int ID;
-        private List<Book> Books = new List<Book>();
+        private Book Book;
         private int Quantity;
         private string Date;
-        public Order(int id, List<Book> books, int quantity)
+        private int CustomerId;
+        public Order(int id, Book book, int quantity, int customerId)
         {
             ID = id;
-            Books = books;
+            Book = book;
             Quantity = quantity;
+            // Date in format of sql server
             Date = DateTime.Now.ToString("dd-MM-yyyy");
+            CustomerId = customerId;
         }
-        public Order(List<Book> books, int quantity)
+        public Order(Book book, int quantity, int customerId)
         {
-            Books = books;
+            Book = book;
             Quantity = quantity;
             Date = DateTime.Now.ToString("dd-MM-yyyy");
+            CustomerId = customerId;
         }
         // Getters and Setters
         public int GetID()
@@ -32,13 +36,13 @@ namespace Library.BL
         {
             ID = id;
         }
-        public List<Book> GetBooks()
+        public Book GetBook()
         {
-            return Books;
+            return Book;
         }
-        public void SetBooks(List<Book> books)
+        public void SetBook(Book book)
         {
-            Books = books;
+            Book = book;
         }
         public int GetQuantity()
         {
@@ -55,6 +59,14 @@ namespace Library.BL
         public void SetDate(string date)
         {
             Date = date;
+        }
+        public int GetCustomerId()
+        {
+            return CustomerId;
+        }
+        public void SetCustomerId(int customerId)
+        {
+            CustomerId = customerId;
         }
     }
 }
