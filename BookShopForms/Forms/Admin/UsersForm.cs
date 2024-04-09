@@ -91,29 +91,38 @@ namespace BookShopForms.Forms.AdminForms
             EarningsBox.Text = dt.Rows[SelectedRow]["Earnings"].ToString();
             SalaryBox.Text = dt.Rows[SelectedRow]["Salary"].ToString();
         }
-
-        private void AddButton_Click(object sender, EventArgs e)
+        private bool CheckValidations()
         {
             if (!CheckEmpty())
             {
                 MessageBox.Show("Please fill all fields");
-                return;
+                return false;
             }
             if (!CheckInt())
             {
                 MessageBox.Show("Earnings and Salary must be integers");
-                return;
+                return false;
             }
             if (!validations.IsUsernameValid(UsernameBox.Text))
             {
                 MessageBox.Show("Username must be between 5 and 20 characters long and can only contain letters and numbers.");
-                return;
+                return false;
             }
             if (!validations.IsPasswordValid(PasswordBox.Text))
             {
                 MessageBox.Show("Your password needs to be at least 6 characters long and include both letters and numbers. Please note that ',' and ';' are not allowed.");
+                return false;
+            }
+            return true;
+        }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            if (!CheckValidations())
+            {
                 return;
             }
+
             if (UserDL.UserExists(UsernameBox.Text))
             {
                 MessageBox.Show("Username already exists");
@@ -129,26 +138,10 @@ namespace BookShopForms.Forms.AdminForms
 
         private void updateBtn_Click(object sender, EventArgs e)
         {
-            if (!CheckEmpty())
+            if (!CheckValidations())
             {
-                MessageBox.Show("Please fill all fields");
                 return;
-            }
-            if (!CheckInt())
-            {
-                MessageBox.Show("Earnings and Salary must be integers");
-                return;
-            }
-            if (!validations.IsUsernameValid(UsernameBox.Text))
-            {
-                MessageBox.Show("Username must be between 5 and 20 characters long and can only contain letters and numbers.");
-                return;
-            }
-            if (!validations.IsPasswordValid(PasswordBox.Text))
-            {
-                MessageBox.Show("Your password needs to be at least 6 characters long and include both letters and numbers. Please note that ',' and ';' are not allowed.");
-                return;
-            }
+            } 
             if (SelectedRow < 0 || SelectedRow >= dt.Rows.Count)
             {
                 MessageBox.Show("Please select a user");
