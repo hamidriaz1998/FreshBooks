@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BookShopForms.Forms.Admin
+namespace BookShopForms.Forms.AdminForms
 {
     public partial class CustomerForm : Form
     {

@@ -55,11 +55,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BookShopDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BookShopDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Admin\AdminMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +66,12 @@
     </Compile>
     <Compile Include="Forms\Admin\BookForm.Designer.cs">
       <DependentUpon>BookForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\CustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\CustomerForm.Designer.cs">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Admin\DashBoard.cs">
       <SubType>Form</SubType>
@@ -117,6 +118,9 @@
     <EmbeddedResource Include="Forms\Admin\BookForm.resx">
       <DependentUpon>BookForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\CustomerForm.resx">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\DashBoard.resx">
       <DependentUpon>DashBoard.cs</DependentUpon>
     </EmbeddedResource>
@@ -140,18 +144,6 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="BookShopDataSet.xsc">
-      <DependentUpon>BookShopDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="BookShopDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BookShopDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BookShopDataSet.xss">
-      <DependentUpon>BookShopDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
