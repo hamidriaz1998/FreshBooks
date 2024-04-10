@@ -92,17 +92,17 @@ namespace BookShopForms.Forms.AdminForms
                 MessageBox.Show("Book already exists");
                 return;
             }
-            if (BookDL.BookExists(book))
-            {
-                MessageBox.Show("Book already exists");
-                return;
-            }   
             if (IsbnBox.Text.Length > 15)
             {
                 MessageBox.Show("Invalid Isbn");
                 return;
             }
             Book book = new Book(TitleBox.Text, AuthorBox.Text, IsbnBox.Text, int.Parse(YearBox.Text), int.Parse(priceBox.Text), int.Parse(stockBox.Text), int.Parse(minStockBox.Text));
+            if (BookDL.BookExists(book))
+            {
+                MessageBox.Show("Book already exists");
+                return;
+            }   
             BookDL.AddBook(book);
             AddDataRow(book);
             ClearFields();
@@ -154,6 +154,10 @@ namespace BookShopForms.Forms.AdminForms
                 ClearFields();
                 dataGridView1.ClearSelection();
             }
+            else
+            {
+                MessageBox.Show("Please select a row to update");
+            }
         }
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -182,6 +186,11 @@ namespace BookShopForms.Forms.AdminForms
                 dt.Rows.RemoveAt(SelectedRow);
                 ClearFields();
                 dataGridView1.ClearSelection();
+            }
+            else
+            {
+                MessageBox.Show("Please select a row to delete");
+                return;
             }
         }
     }

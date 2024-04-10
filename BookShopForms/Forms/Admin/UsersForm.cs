@@ -169,6 +169,12 @@ namespace BookShopForms.Forms.AdminForms
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
+            SelectedRow = dataGridView1.CurrentCell.RowIndex;
+            if (SelectedRow < 0 || SelectedRow >= dt.Rows.Count)
+            {
+                MessageBox.Show("Please select a user");
+                return;
+            }
             int id = int.Parse(dt.Rows[SelectedRow]["Id"].ToString());
             Salesman s = (Salesman)UserDL.GetUser(id);
             UserDL.RemoveUser(s);

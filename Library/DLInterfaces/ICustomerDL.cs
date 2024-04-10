@@ -8,6 +8,7 @@ namespace Library.DL
         Customer FindCustomer(int id);
         Customer FindCustomer(string email);
         void RemoveCustomer(Customer customer);
+        void RemoveCustomer(int id);
         void UpdateCustomer(Customer customer);
         List<Customer> GetCustomers();
         void LoadCustomers();

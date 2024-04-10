@@ -99,6 +99,55 @@ namespace BookShopForms.Forms.Admin
             CustomerDL.AddCustomer(c);
             AddDataRow(c);
             ClearFields();
+                dataGridView1.ClearSelection();
+        }
+
+        private void updateBtn_Click(object sender, EventArgs e)
+        {
+            if (!CheckValidations())
+            {
+                return;
+            }
+            SelectedRow = dataGridView1.CurrentCell.RowIndex;
+            if (SelectedRow >= 0 && SelectedRow <= dt.Rows.Count)
+            {
+                int id = int.Parse(dt.Rows[SelectedRow]["Id"].ToString());
+                Customer c = CustomerDL.FindCustomer(id);
+                c.SetName(NameBox.Text);
+                c.SetEmail(EmailBox.Text);
+                c.SetPhone(PhoneBox.Text);
+                c.SetAddress(AddressBox.Text);
+                CustomerDL.UpdateCustomer(c);   
+                dt.Rows[SelectedRow]["Name"] = NameBox.Text;
+                dt.Rows[SelectedRow]["Email"] = EmailBox.Text;
+                dt.Rows[SelectedRow]["Phone"] = PhoneBox.Text;
+                dt.Rows[SelectedRow]["Address"] = AddressBox.Text;
+                ClearFields();
+                dataGridView1.ClearSelection();
+            }
+            else
+            {
+                MessageBox.Show("Please select a row to update");
+                return;
+            }
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            SelectedRow = dataGridView1.CurrentCell.RowIndex;
+            if (SelectedRow >= 0 && SelectedRow <= dt.Rows.Count)
+            {
+                int id = int.Parse(dt.Rows[SelectedRow]["Id"].ToString());
+                CustomerDL.RemoveCustomer(id);
+                dt.Rows.RemoveAt(SelectedRow);
+                ClearFields();
+                dataGridView1.ClearSelection();
+            }
+            else
+            {
+                MessageBox.Show("Please select a row to delete");
+                return;
+            }
         }
     }
 }

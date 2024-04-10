@@ -67,6 +67,14 @@ namespace Library.AbstractDLs
             Customers.Remove(customer);
             RemoveFromSource(customer);
         }
+        public void RemoveCustomer(int id)
+        {
+            Customer customer = FindCustomer(id);
+            if (customer != null)
+            {
+                RemoveCustomer(customer);
+            }
+        }
         public List<Customer> GetCustomers()
         {
             return Customers;
