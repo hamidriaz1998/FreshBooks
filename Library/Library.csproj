@@ -52,6 +52,7 @@
     <Compile Include="DL\DB\CustomerDB.cs"/>
     <Compile Include="DL\FH\BookFH.cs"/>
     <Compile Include="DL\FH\UserFH.cs"/>
+    <Compile Include="DL\FH\CustomerFH.cs"/>
     <Compile Include="Utils\DBConfig.cs"/>
     <Compile Include="Utils\Validations.cs"/>
     <Compile Include="Properties\AssemblyInfo.cs" />

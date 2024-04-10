@@ -24,6 +24,13 @@ namespace Library.BL
             Date = date;
             CalculateTotal();
         }
+        public Order(Book book, int quantity, int total, string date)
+        {
+            Book = book;
+            Quantity = quantity;
+            Total = total;
+            Date = date;
+        }
         public void CalculateTotal()
         {
             Total = Book.GetPrice() * Quantity;
