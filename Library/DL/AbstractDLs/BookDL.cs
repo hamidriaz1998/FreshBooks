@@ -81,6 +81,18 @@ namespace Library.AbstractDLs
         {
             return Books;
         }
+        public List<Book> GetLowStockBooks()
+        {
+            List<Book> lowStockBooks = new List<Book>();
+            foreach (Book b in Books)
+            {
+                if (b.IsLowStock())
+                {
+                    lowStockBooks.Add(b);
+                }
+            }
+            return lowStockBooks;
+        }
         public abstract void LoadBooks();
         protected abstract void StoreInSource(Book book);
         protected abstract void UpdateInSource(Book book);

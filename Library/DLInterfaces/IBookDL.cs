@@ -14,5 +14,6 @@ namespace Library.DL
         void LoadBooks();
         bool BookExists(Book book);
         bool BookExists(string isbn);
+        List<Book> GetLowStockBooks();
     }
 }

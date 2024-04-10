@@ -126,7 +126,9 @@ namespace Library.BL
         {
             Stock += quantity;
         }
-
-
+        public bool IsLowStock()
+        {
+            return Stock < MinStock;
+        }
     }
 }

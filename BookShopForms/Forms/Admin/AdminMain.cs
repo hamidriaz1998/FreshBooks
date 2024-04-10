@@ -69,5 +69,10 @@ namespace BookShopForms.Forms.AdminForms
         {
             LoadForm(new CustomerForm());
         }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            LoadForm(new LowStockBooks());
+        }
     }
 }
