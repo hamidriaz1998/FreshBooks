@@ -22,7 +22,7 @@ namespace Library.DL
         }
         public override void LoadCustomers()
         {
-            string query = "Select * from Customers";
+            string query = "Select * from Customer";
             SqlCommand command = new SqlCommand(query, dB.GetConnection());
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable table = new DataTable();
@@ -41,7 +41,7 @@ namespace Library.DL
         }
         protected override void StoreInSource(Customer customer)
         {
-            string query = "Insert into Customers (Name, Email, Phone, Address) Output Inserted.ID values (@Name, @Email, @Phone, @Address)";
+            string query = "Insert into Customer (Name, Email, Phone, Address) Output Inserted.ID values (@Name, @Email, @Phone, @Address)";
             SqlCommand command = new SqlCommand(query, dB.GetConnection());
             command.Parameters.AddWithValue("@Name", customer.GetName());
             command.Parameters.AddWithValue("@Email", customer.GetEmail());
@@ -97,14 +97,14 @@ namespace Library.DL
         protected override void RemoveFromSource(Customer customer)
         {
             DeleteOrders(customer);
-            string query = "Delete from Customers where ID = @ID";
+            string query = "Delete from Customer where ID = @ID";
             SqlCommand command = new SqlCommand(query, dB.GetConnection());
             command.Parameters.AddWithValue("@ID", customer.GetID());
             command.ExecuteNonQuery();
         }
         protected override void UpdateInSource(Customer customer)
         {
-            string query = "Update Customers set Name = @Name, Email = @Email, Phone = @Phone, Address = @Address where ID = @ID";
+            string query = "Update Customer set Name = @Name, Email = @Email, Phone = @Phone, Address = @Address where ID = @ID";
             SqlCommand command = new SqlCommand(query, dB.GetConnection());
             command.Parameters.AddWithValue("@Name", customer.GetName());
             command.Parameters.AddWithValue("@Email", customer.GetEmail());
