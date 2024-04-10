@@ -21,6 +21,16 @@ namespace BookShopForms.Forms.AdminForms
         {
             InitializeComponent();
         }
+        private void SetTabIndices()
+        {
+            NameBox.TabIndex = 0;
+            EmailBox.TabIndex = 1;
+            PhoneBox.TabIndex = 2;
+            AddressBox.TabIndex = 3;
+            AddButton.TabIndex = 4;
+            updateBtn.TabIndex = 5;
+            DeleteButton.TabIndex = 6;
+        }
         private void LoadData()
         {
             List<Customer> customers = CustomerDL.GetCustomers();
@@ -41,6 +51,7 @@ namespace BookShopForms.Forms.AdminForms
         }
         private void CustomerForm_Load(object sender, EventArgs e)
         {
+            SetTabIndices();
             dt.Columns.Add("Id", typeof(int));
             dt.Columns.Add("Name", typeof(string));
             dt.Columns.Add("Email", typeof(string));
@@ -99,7 +110,6 @@ namespace BookShopForms.Forms.AdminForms
             CustomerDL.AddCustomer(c);
             AddDataRow(c);
             ClearFields();
-                dataGridView1.ClearSelection();
         }
 
         private void updateBtn_Click(object sender, EventArgs e)
@@ -123,7 +133,6 @@ namespace BookShopForms.Forms.AdminForms
                 dt.Rows[SelectedRow]["Phone"] = PhoneBox.Text;
                 dt.Rows[SelectedRow]["Address"] = AddressBox.Text;
                 ClearFields();
-                dataGridView1.ClearSelection();
             }
             else
             {
@@ -141,7 +150,6 @@ namespace BookShopForms.Forms.AdminForms
                 CustomerDL.RemoveCustomer(id);
                 dt.Rows.RemoveAt(SelectedRow);
                 ClearFields();
-                dataGridView1.ClearSelection();
             }
             else
             {

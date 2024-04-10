@@ -23,6 +23,17 @@ namespace BookShopForms.Forms.AdminForms
         {
             InitializeComponent();
         }
+        private void SetTabIndices()
+        {
+            UsernameBox.TabIndex = 0;
+            PasswordBox.TabIndex = 1;
+            CurrencyBox.TabIndex = 2;
+            EarningsBox.TabIndex = 3;
+            SalaryBox.TabIndex = 4;
+            AddButton.TabIndex = 5;
+            updateBtn.TabIndex = 6;
+            DeleteButton.TabIndex = 7;
+        }
         private void FillCurrencyBox()
         {
             List<string> list = new List<string>() { "$", "€", "£" };
@@ -50,6 +61,7 @@ namespace BookShopForms.Forms.AdminForms
         }
         private void UserForm_Load(object sender, EventArgs e)
         {
+            SetTabIndices();
             dt.Columns.Add("Id", typeof(int));
             dt.Columns.Add("Username", typeof(string));
             dt.Columns.Add("Password", typeof(string));
@@ -115,6 +127,14 @@ namespace BookShopForms.Forms.AdminForms
             }
             return true;
         }
+        private void ClearFields()
+        {
+            UsernameBox.Text = "";
+            PasswordBox.Text = "";
+            EarningsBox.Text = "";
+            SalaryBox.Text = "";
+            CurrencyBox.SelectedIndex = 0;
+        }
 
         private void AddButton_Click(object sender, EventArgs e)
         {
@@ -134,6 +154,7 @@ namespace BookShopForms.Forms.AdminForms
             s.SetSalary(int.Parse(SalaryBox.Text));
             UserDL.AddUser(s);
             AddDataRow(s);
+            ClearFields();
         }
 
         private void updateBtn_Click(object sender, EventArgs e)
@@ -165,6 +186,7 @@ namespace BookShopForms.Forms.AdminForms
             dt.Rows[SelectedRow]["Currency"] = s.GetCurrency();
             dt.Rows[SelectedRow]["Earnings"] = s.GetEarnings();
             dt.Rows[SelectedRow]["Salary"] = s.GetSalary();
+            ClearFields();
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)

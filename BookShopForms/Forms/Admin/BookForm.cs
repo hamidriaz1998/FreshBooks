@@ -21,6 +21,19 @@ namespace BookShopForms.Forms.AdminForms
         {
             InitializeComponent();
         }
+        private void SetTabIndices()
+        {
+            TitleBox.TabIndex = 0;
+            AuthorBox.TabIndex = 1;
+            IsbnBox.TabIndex = 2;
+            YearBox.TabIndex = 3;
+            priceBox.TabIndex = 4;
+            stockBox.TabIndex = 5;
+            minStockBox.TabIndex = 6;
+            AddButton.TabIndex = 7;
+            updateBtn.TabIndex = 8;
+            DeleteButton.TabIndex = 9; 
+        }
         private void LoadData()
         {
             List<Book> books = BookDL.GetBooks();
@@ -45,6 +58,7 @@ namespace BookShopForms.Forms.AdminForms
         }
         private void BookForm_Load(object sender, EventArgs e)
         {
+            SetTabIndices();
             dt.Columns.Add("Id",typeof(int));
             dt.Columns.Add("Title",typeof(string));
             dt.Columns.Add("Author",typeof(string));
