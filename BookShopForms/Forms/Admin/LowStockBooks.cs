@@ -66,5 +66,30 @@ namespace BookShopForms.Forms.AdminForms
             dataGridView1.DataSource = dt;
             dataGridView1.ReadOnly = true;
         }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a book");
+                return;
+            }
+            if (StockBox.Text == "")
+            {
+                MessageBox.Show("Please enter a stock amount");
+                return;
+            }
+            if (!int.TryParse(StockBox.Text, out _))
+            {
+                MessageBox.Show("Please enter a valid number");
+                return;
+            }
+            SelectedRow = dataGridView1.CurrentCell.RowIndex;
+            Book book = BookDL.FindBook(Convert.ToInt32(dt.Rows[SelectedRow]["Id"]));
+            book.SetStock(book.GetStock() + Convert.ToInt32(StockBox.Text));
+            BookDL.UpdateBook(book);
+            dt.Rows.RemoveAt(SelectedRow);
+            MessageBox.Show("Stock updated successfully");  
+        }
     }
 }
