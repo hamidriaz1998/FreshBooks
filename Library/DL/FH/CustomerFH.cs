@@ -52,6 +52,10 @@ namespace Library.DL
         }
         public override void LoadCustomers()
         {
+            if (!File.Exists(CustomerPath) || !File.Exists(OrderPath))
+            {
+                return;
+            }
             string[] lines = File.ReadAllLines(CustomerPath);
             foreach (string line in lines)
             {
@@ -86,6 +90,10 @@ namespace Library.DL
         }
         protected override void RemoveFromSource(Customer customer)
         {
+            if (!File.Exists(CustomerPath) || !File.Exists(OrderPath))
+            {
+                return;
+            }
             string[] lines = File.ReadAllLines(CustomerPath);
             StreamWriter sw = new StreamWriter(CustomerPath);
             foreach (string line in lines)

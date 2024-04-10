@@ -12,14 +12,18 @@ namespace BookShopForms
     {
         private static Validations validations = Validations.GetInstance();
 
-        private static IUserDL UserDL = UserDB.GetInstance();
-        private static IBookDL BookDL = BookDB.GetInstance();
-        private static ICustomerDL CustomerDL = CustomerDB.GetInstance();
+        // Uncomment the following lines to use the database handler
+
+        //private static IUserDL UserDL = UserDB.GetInstance();
+        //private static IBookDL BookDL = BookDB.GetInstance();
+        //private static ICustomerDL CustomerDL = CustomerDB.GetInstance();
 
         // Uncomment the following lines to use the file handler
 
-        //private static IBookDL BookDL = BookFH.GetInstance();
-        //private static IUserDL UserDL = UserFH.GetInstance();
+        private static IBookDL BookDL = BookFH.GetInstance();
+        private static IUserDL UserDL = UserFH.GetInstance();
+        private static ICustomerDL CustomerDL = CustomerFH.GetInstance();
+
         public static IUserDL GetUserDL()
         {
             return UserDL;
