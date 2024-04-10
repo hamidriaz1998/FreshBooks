@@ -18,6 +18,14 @@ namespace Library.DL
             }
             return Instance;
         }
+        public override void AddCustomer(Customer customer)
+        {
+            if (customer.GetID() == 0)
+            {
+                customer.SetID(Customers.Count + 1);
+            }
+            base.AddCustomer(customer);
+        }
         protected override void StoreInSource(Customer customer)
         {
             StreamWriter sw = new StreamWriter(CustomerPath, true);
