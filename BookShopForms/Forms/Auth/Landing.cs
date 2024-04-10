@@ -16,10 +16,14 @@ namespace BookShopForms.Forms
         {
             InitializeComponent();
         }
-
+        private void SetTabIndices()
+        {
+            SignUpButton.TabIndex = 0;
+            SignInButton.TabIndex = 1;
+        }
         private void Landing_Load(object sender, EventArgs e)
         {
-
+            SetTabIndices();
         }
         private void SignUpButton_Click(object sender, EventArgs e)
         {

@@ -177,6 +177,7 @@
             this.PassUpdateBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(171)))), ((int)(((byte)(174)))));
             this.PassUpdateBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PassUpdateBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
+            this.PassUpdateBtn.IndicateFocus = true;
             this.PassUpdateBtn.Location = new System.Drawing.Point(613, 287);
             this.PassUpdateBtn.Name = "PassUpdateBtn";
             this.PassUpdateBtn.Size = new System.Drawing.Size(90, 32);
@@ -194,6 +195,7 @@
             this.CurrencyUpdateBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(171)))), ((int)(((byte)(174)))));
             this.CurrencyUpdateBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CurrencyUpdateBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
+            this.CurrencyUpdateBtn.IndicateFocus = true;
             this.CurrencyUpdateBtn.Location = new System.Drawing.Point(161, 172);
             this.CurrencyUpdateBtn.Name = "CurrencyUpdateBtn";
             this.CurrencyUpdateBtn.Size = new System.Drawing.Size(90, 32);

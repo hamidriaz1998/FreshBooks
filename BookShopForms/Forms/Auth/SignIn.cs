@@ -19,8 +19,15 @@ namespace BookShopForms.Forms
         public SignIn()
         {
             InitializeComponent();
+            SetTabIndices();
         }
-
+        private void SetTabIndices()
+        {
+            UsernameBox.TabIndex = 0;
+            PasswordBox.TabIndex = 1;
+            SignInButton.TabIndex = 2;
+            BackButton.TabIndex = 3;
+        }
         private void CloseButton_Click(object sender, EventArgs e)
         {
             Application.Exit();

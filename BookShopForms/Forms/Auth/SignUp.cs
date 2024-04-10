@@ -21,6 +21,15 @@ namespace BookShopForms
         {
             InitializeComponent();
             LoadComboBox();
+            SetTabIndices();
+        }
+        private void SetTabIndices()
+        {
+            UsernameBox.TabIndex = 0;
+            PasswordBox.TabIndex = 1;
+            RoleBox.TabIndex = 2;
+            SignUpButton.TabIndex = 3;
+            BackButton.TabIndex = 4;
         }
         private void LoadComboBox()
         {

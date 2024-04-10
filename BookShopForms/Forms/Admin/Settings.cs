@@ -17,6 +17,15 @@ namespace BookShopForms.Forms.AdminForms
         {
             InitializeComponent();
         }
+        private void SetTabIndices()
+        {
+            CurrencyBox.TabIndex = 0;
+            CurrencyUpdateBtn.TabIndex = 4;
+            OldPassBox.TabIndex = 1;
+            NewPassBox.TabIndex = 2;
+            ConfirmPassBox.TabIndex = 3;
+            PassUpdateBtn.TabIndex = 5;
+        }
         private void UpdateUser()
         {
             AdminMain.LoggedInUser.SetCurrency(CurrencyBox.SelectedItem.ToString());
@@ -30,6 +39,7 @@ namespace BookShopForms.Forms.AdminForms
 
         private void Settings_Load(object sender, EventArgs e)
         {
+            SetTabIndices();
             LoadCurrencyBox();
         }
         private bool CheckEmpty()
