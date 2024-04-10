@@ -92,7 +92,6 @@ namespace BookShopForms.Forms.AdminForms
                 MessageBox.Show("Book already exists");
                 return;
             }
-            Book book = new Book(TitleBox.Text, AuthorBox.Text, IsbnBox.Text, int.Parse(YearBox.Text), int.Parse(priceBox.Text), int.Parse(stockBox.Text), int.Parse(minStockBox.Text));
             if (BookDL.BookExists(book))
             {
                 MessageBox.Show("Book already exists");
@@ -103,6 +102,7 @@ namespace BookShopForms.Forms.AdminForms
                 MessageBox.Show("Invalid Isbn");
                 return;
             }
+            Book book = new Book(TitleBox.Text, AuthorBox.Text, IsbnBox.Text, int.Parse(YearBox.Text), int.Parse(priceBox.Text), int.Parse(stockBox.Text), int.Parse(minStockBox.Text));
             BookDL.AddBook(book);
             AddDataRow(book);
             ClearFields();

@@ -64,5 +64,41 @@ namespace BookShopForms.Forms.Admin
             PhoneBox.Text = dt.Rows[SelectedRow]["Phone"].ToString();
             AddressBox.Text = dt.Rows[SelectedRow]["Address"].ToString();
         }
+        private bool CheckEmpty()
+        {
+            if (NameBox.Text == "" || EmailBox.Text == "" || PhoneBox.Text == "" || AddressBox.Text == "")
+            {
+                return true;
+            }
+            return false;
+        }
+        private void ClearFields()
+        {
+            NameBox.Text = "";
+            EmailBox.Text = "";
+            PhoneBox.Text = "";
+            AddressBox.Text = "";
+        }
+        private bool CheckValidations()
+        {
+            if (CheckEmpty())
+            {
+                MessageBox.Show("Please fill all fields");
+                return false;
+            }
+            return true;
+        }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            if (!CheckValidations())
+            {
+                return;
+            }
+            Customer c = new Customer(NameBox.Text,EmailBox.Text,PhoneBox.Text,AddressBox.Text); 
+            CustomerDL.AddCustomer(c);
+            AddDataRow(c);
+            ClearFields();
+        }
     }
 }

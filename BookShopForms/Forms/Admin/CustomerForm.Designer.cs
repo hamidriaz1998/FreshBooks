@@ -152,6 +152,7 @@
             this.AddButton.Size = new System.Drawing.Size(90, 32);
             this.AddButton.TabIndex = 49;
             this.AddButton.Text = "Add";
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // AddressBox
             // 
