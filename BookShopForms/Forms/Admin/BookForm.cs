@@ -14,6 +14,7 @@ namespace BookShopForms.Forms.AdminForms
 {
     public partial class BookForm : Form
     {
+        private User LoggedInUser = ObjectHandler.GetLoggedInUser();
         private DataTable dt = new DataTable();
         private IBookDL BookDL = ObjectHandler.GetBookDL();
         int SelectedRow = 0;
@@ -50,7 +51,7 @@ namespace BookShopForms.Forms.AdminForms
             row["Author"] = book.GetAuthor();
             row["ISBN"] = book.GetISBN();
             row["PublicationYear"] = book.GetPublicationYear();
-            row["Price"] = book.GetPrice();
+            row["Price"] = LoggedInUser.GetCurrency() + book.GetPrice().ToString();
             row["Stock"] = book.GetStock();
             row["MinStock"] = book.GetMinStock();
             row["CopiesSold"] = book.GetCopiesSold();
@@ -64,7 +65,7 @@ namespace BookShopForms.Forms.AdminForms
             dt.Columns.Add("Author",typeof(string));
             dt.Columns.Add("ISBN", typeof(string));
             dt.Columns.Add("PublicationYear", typeof(int));
-            dt.Columns.Add("Price", typeof(int));
+            dt.Columns.Add("Price", typeof(string));
             dt.Columns.Add("Stock", typeof(int));
             dt.Columns.Add("MinStock",typeof(int));
             dt.Columns.Add("CopiesSold",typeof(int));
@@ -111,7 +112,7 @@ namespace BookShopForms.Forms.AdminForms
                 MessageBox.Show("Invalid Isbn");
                 return;
             }
-            Book book = new Book(TitleBox.Text, AuthorBox.Text, IsbnBox.Text, int.Parse(YearBox.Text), int.Parse(priceBox.Text), int.Parse(stockBox.Text), int.Parse(minStockBox.Text));
+            Book book = new Book(TitleBox.Text, AuthorBox.Text, IsbnBox.Text, int.Parse(YearBox.Text), int.Parse(priceBox.Text.Substring(1)), int.Parse(stockBox.Text), int.Parse(minStockBox.Text));
             if (BookDL.BookExists(book))
             {
                 MessageBox.Show("Book already exists");
@@ -154,7 +155,7 @@ namespace BookShopForms.Forms.AdminForms
                 book.SetAuthor(AuthorBox.Text);
                 book.SetISBN(IsbnBox.Text);
                 book.SetPublicationYear(int.Parse(YearBox.Text));
-                book.SetPrice(int.Parse(priceBox.Text));
+                book.SetPrice(int.Parse(priceBox.Text.Substring(1)));
                 book.SetStock(int.Parse(stockBox.Text));
                 book.SetMinStock(int.Parse(minStockBox.Text));
                 BookDL.UpdateBook(book);
@@ -184,7 +185,7 @@ namespace BookShopForms.Forms.AdminForms
             AuthorBox.Text = dt.Rows[SelectedRow]["Author"].ToString();
             IsbnBox.Text = dt.Rows[SelectedRow]["ISBN"].ToString();
             YearBox.Text = dt.Rows[SelectedRow]["PublicationYear"].ToString();
-            priceBox.Text = dt.Rows[SelectedRow]["Price"].ToString();
+            priceBox.Text = dt.Rows[SelectedRow]["Price"].ToString().Substring(1);
             stockBox.Text = dt.Rows[SelectedRow]["Stock"].ToString();
             minStockBox.Text = dt.Rows[SelectedRow]["MinStock"].ToString();
         }
