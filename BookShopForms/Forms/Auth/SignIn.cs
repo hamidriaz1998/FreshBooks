@@ -28,6 +28,11 @@ namespace BookShopForms.Forms
             SignInButton.TabIndex = 2;
             BackButton.TabIndex = 3;
         }
+        private void ClearFields()
+        {
+            UsernameBox.Text = "";
+            PasswordBox.Text = "";
+        }
         private void CloseButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -43,6 +48,7 @@ namespace BookShopForms.Forms
             string username = UsernameBox.Text;
             string password = PasswordBox.Text;
             User u = UserDL.Login(username, password);
+            ClearFields();
             if (u == null)
             {
                 MessageBox.Show("Invalid username or password");

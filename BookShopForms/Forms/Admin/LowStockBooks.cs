@@ -14,6 +14,7 @@ namespace BookShopForms.Forms.AdminForms
 {
     public partial class LowStockBooks : Form
     {
+        private User LoggedInUser = ObjectHandler.GetLoggedInUser();
         private IBookDL BookDL = ObjectHandler.GetBookDL();
         private DataTable dt = new DataTable();
         int SelectedRow = 0;
@@ -35,7 +36,7 @@ namespace BookShopForms.Forms.AdminForms
             dr["Author"] = book.GetAuthor();
             dr["ISBN"] = book.GetISBN();
             dr["PublicationYear"] = book.GetPublicationYear();
-            dr["Price"] = book.GetPrice();
+            dr["Price"] = LoggedInUser.GetCurrency() + book.GetPrice().ToString();
             dr["Stock"] = book.GetStock();
             dr["MinStock"] = book.GetMinStock();
             dr["CopiesSold"] = book.GetCopiesSold();
@@ -58,7 +59,7 @@ namespace BookShopForms.Forms.AdminForms
             dt.Columns.Add("Author", typeof(string));
             dt.Columns.Add("ISBN", typeof(string));
             dt.Columns.Add("PublicationYear", typeof(int));
-            dt.Columns.Add("Price", typeof(int));
+            dt.Columns.Add("Price", typeof(string));
             dt.Columns.Add("Stock", typeof(int));
             dt.Columns.Add("MinStock", typeof(int));
             dt.Columns.Add("CopiesSold", typeof(int));

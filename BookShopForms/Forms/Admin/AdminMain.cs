@@ -36,6 +36,7 @@ namespace BookShopForms.Forms.AdminForms
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
+            ObjectHandler.SetLoggedInUser(null);
             Application.Exit();
         }
 

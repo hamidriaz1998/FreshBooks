@@ -112,7 +112,7 @@ namespace BookShopForms.Forms.AdminForms
                 MessageBox.Show("Invalid Isbn");
                 return;
             }
-            Book book = new Book(TitleBox.Text, AuthorBox.Text, IsbnBox.Text, int.Parse(YearBox.Text), int.Parse(priceBox.Text.Substring(1)), int.Parse(stockBox.Text), int.Parse(minStockBox.Text));
+            Book book = new Book(TitleBox.Text, AuthorBox.Text, IsbnBox.Text, int.Parse(YearBox.Text), int.Parse(priceBox.Text), int.Parse(stockBox.Text), int.Parse(minStockBox.Text));
             if (BookDL.BookExists(book))
             {
                 MessageBox.Show("Book already exists");
@@ -155,7 +155,7 @@ namespace BookShopForms.Forms.AdminForms
                 book.SetAuthor(AuthorBox.Text);
                 book.SetISBN(IsbnBox.Text);
                 book.SetPublicationYear(int.Parse(YearBox.Text));
-                book.SetPrice(int.Parse(priceBox.Text.Substring(1)));
+                book.SetPrice(int.Parse(priceBox.Text));
                 book.SetStock(int.Parse(stockBox.Text));
                 book.SetMinStock(int.Parse(minStockBox.Text));
                 BookDL.UpdateBook(book);
@@ -163,7 +163,7 @@ namespace BookShopForms.Forms.AdminForms
                 dt.Rows[SelectedRow]["Author"] = AuthorBox.Text;
                 dt.Rows[SelectedRow]["ISBN"] = IsbnBox.Text;
                 dt.Rows[SelectedRow]["PublicationYear"] = int.Parse(YearBox.Text);
-                dt.Rows[SelectedRow]["Price"] = int.Parse(priceBox.Text);
+                dt.Rows[SelectedRow]["Price"] = LoggedInUser.GetCurrency() + priceBox.Text;
                 dt.Rows[SelectedRow]["Stock"] = int.Parse(stockBox.Text);
                 dt.Rows[SelectedRow]["MinStock"] = int.Parse(minStockBox.Text);
                 ClearFields();
