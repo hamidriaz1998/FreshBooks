@@ -67,10 +67,10 @@
     <Compile Include="Forms\Admin\BookForm.Designer.cs">
       <DependentUpon>BookForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Admin\CustomerForm.cs">
+    <Compile Include="Forms\Common\CustomerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Admin\CustomerForm.Designer.cs">
+    <Compile Include="Forms\Common\CustomerForm.Designer.cs">
       <DependentUpon>CustomerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Admin\DashBoard.cs">
@@ -85,10 +85,10 @@
     <Compile Include="Forms\Admin\LowStockBooks.Designer.cs">
       <DependentUpon>LowStockBooks.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Admin\Settings.cs">
+    <Compile Include="Forms\Common\Settings.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Admin\Settings.Designer.cs">
+    <Compile Include="Forms\Common\Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Admin\UsersForm.cs">
@@ -124,7 +124,7 @@
     <EmbeddedResource Include="Forms\Admin\BookForm.resx">
       <DependentUpon>BookForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Admin\CustomerForm.resx">
+    <EmbeddedResource Include="Forms\Common\CustomerForm.resx">
       <DependentUpon>CustomerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\DashBoard.resx">
@@ -133,7 +133,7 @@
     <EmbeddedResource Include="Forms\Admin\LowStockBooks.resx">
       <DependentUpon>LowStockBooks.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Admin\Settings.resx">
+    <EmbeddedResource Include="Forms\Common\Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\UsersForm.resx">

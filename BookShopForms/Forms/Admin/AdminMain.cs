@@ -7,15 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BookShopForms.Forms.Common;
 using Library.BL;
 namespace BookShopForms.Forms.AdminForms
 {
     public partial class AdminMain : Form
     {
-        public static Admin LoggedInUser;
-        public AdminMain(Admin admin)
+        public AdminMain(User admin)
         {
-            LoggedInUser = admin;
+            ObjectHandler.SetLoggedInUser(admin);
             InitializeComponent();
             LoadForm(new DashBoard());
         }
@@ -57,7 +57,7 @@ namespace BookShopForms.Forms.AdminForms
         private void LogoutBtn_Click(object sender, EventArgs e)
         {
             this.Close();
-            LoggedInUser = null;
+            ObjectHandler.SetLoggedInUser(null);
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)

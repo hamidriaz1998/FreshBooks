@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BookShopForms.Forms.AdminForms
+namespace BookShopForms.Forms.Common
 {
     public partial class CustomerForm : Form
     {
@@ -107,6 +107,11 @@ namespace BookShopForms.Forms.AdminForms
                 return;
             }
             Customer c = new Customer(NameBox.Text,EmailBox.Text,PhoneBox.Text,AddressBox.Text); 
+            if (CustomerDL.CustomerExists(c))
+            {
+                MessageBox.Show("Customer with this email already exists");
+                return;
+            }
             CustomerDL.AddCustomer(c);
             AddDataRow(c);
             ClearFields();

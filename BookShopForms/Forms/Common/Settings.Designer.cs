@@ -1,4 +1,4 @@
-﻿namespace BookShopForms.Forms.AdminForms
+﻿namespace BookShopForms.Forms.Common
 {
     partial class Settings
     {

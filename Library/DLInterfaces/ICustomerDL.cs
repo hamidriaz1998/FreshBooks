@@ -12,7 +12,7 @@ namespace Library.DL
         void UpdateCustomer(Customer customer);
         List<Customer> GetCustomers();
         void LoadCustomers();
-        bool CustomerExists(int id);
+        bool CustomerExists(string email);
         bool CustomerExists(Customer customer);
         void AddOrder(Customer customer, Order order);
     }

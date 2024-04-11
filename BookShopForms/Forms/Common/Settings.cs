@@ -1,4 +1,6 @@
-﻿using BookShopForms.Forms.AdminForms;
+﻿using Library.BL;
+using Library.DL;
+using BookShopForms.Forms.AdminForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,10 +11,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BookShopForms.Forms.AdminForms
+namespace BookShopForms.Forms.Common
 {
     public partial class Settings : Form
     {
+        private User LoggedInUser = ObjectHandler.GetLoggedInUser();
+        private static IUserDL UserDL = ObjectHandler.GetUserDL();
         public Settings()
         {
             InitializeComponent();
@@ -28,13 +32,13 @@ namespace BookShopForms.Forms.AdminForms
         }
         private void UpdateUser()
         {
-            AdminMain.LoggedInUser.SetCurrency(CurrencyBox.SelectedItem.ToString());
+            LoggedInUser.SetCurrency(CurrencyBox.SelectedItem.ToString());
         }
         private void LoadCurrencyBox()
         {
             List<String> list = new List<String>() { "$", "€", "£" };
             CurrencyBox.DataSource = list;
-            CurrencyBox.SelectedItem = AdminMain.LoggedInUser.GetCurrency();
+            CurrencyBox.SelectedItem = LoggedInUser.GetCurrency();
         }
 
         private void Settings_Load(object sender, EventArgs e)
@@ -57,7 +61,7 @@ namespace BookShopForms.Forms.AdminForms
                 MessageBox.Show("Please select a currency");
                 return;
             }
-            ObjectHandler.GetUserDL().UpdateUser(AdminMain.LoggedInUser);
+            UserDL.UpdateUser(LoggedInUser);
             UpdateUser();
             MessageBox.Show("Currency updated successfully");
         }
@@ -69,7 +73,7 @@ namespace BookShopForms.Forms.AdminForms
                 MessageBox.Show("Please fill all fields");
                 return;
             }
-            if (OldPassBox.Text != AdminMain.LoggedInUser.GetPassword())
+            if (OldPassBox.Text != LoggedInUser.GetPassword())
             {
                 MessageBox.Show("Old password is incorrect");
                 return;
@@ -79,7 +83,7 @@ namespace BookShopForms.Forms.AdminForms
                 MessageBox.Show("Passwords do not match");
                 return;
             }
-            AdminMain.LoggedInUser.SetPassword(NewPassBox.Text);
+            LoggedInUser.SetPassword(NewPassBox.Text);
             UpdateUser();
         }
     }

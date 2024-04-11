@@ -1,4 +1,5 @@
-﻿using Library.DL;
+﻿using Library.BL;
+using Library.DL;
 using Library.Utils;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace BookShopForms
     internal class ObjectHandler
     {
         private static Validations validations = Validations.GetInstance();
-
+        private static User LoggedInUser = null;
         // Uncomment the following lines to use the database handler
 
         //private static IUserDL UserDL = UserDB.GetInstance();
@@ -24,6 +25,14 @@ namespace BookShopForms
         private static IUserDL UserDL = UserFH.GetInstance();
         private static ICustomerDL CustomerDL = CustomerFH.GetInstance();
 
+        public static User GetLoggedInUser()
+        {
+            return LoggedInUser;
+        }
+        public static void SetLoggedInUser(User user)
+        {
+            LoggedInUser = user;
+        }
         public static IUserDL GetUserDL()
         {
             return UserDL;

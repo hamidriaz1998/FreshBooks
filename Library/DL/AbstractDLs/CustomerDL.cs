@@ -18,20 +18,14 @@ namespace Library.AbstractDLs
             customer.AddOrder(order);
             StoreOrder(order, customer.GetID());
         }
-        public bool CustomerExists(int id)
+        public bool CustomerExists(string email)
         {
-            foreach (Customer c in Customers)
-            {
-                if (c.GetID() == id)
-                {
-                    return true;
-                }
-            }
-            return false;
+            Customer c = FindCustomer(email);
+            return c != null;
         }
         public bool CustomerExists(Customer customer)
         {
-            return Customers.Contains(customer);
+            return CustomerExists(customer.GetEmail());
         }
         public Customer FindCustomer(int id)
         {
