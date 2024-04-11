@@ -16,6 +16,7 @@ namespace Library.DL
                 Instance = new BookFH();
             return Instance;
         }
+        private BookFH() { }
         public override void AddBook(Book book)
         {
             if (book.GetID() == 0)

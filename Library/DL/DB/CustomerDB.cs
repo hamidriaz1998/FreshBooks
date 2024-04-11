@@ -12,6 +12,7 @@ namespace Library.DL
         private IBookDL bookDL = BookDB.GetInstance();
         private DBConfig dB = DBConfig.GetInstance();
         private static CustomerDB Instance;
+        private CustomerDB() { }
         public static CustomerDB GetInstance()
         {
             if (Instance == null)

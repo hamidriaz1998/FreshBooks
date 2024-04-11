@@ -18,6 +18,7 @@ namespace Library.DL
             }
             return Instance;
         }
+        private CustomerFH() { }
         public override void AddCustomer(Customer customer)
         {
             if (customer.GetID() == 0)

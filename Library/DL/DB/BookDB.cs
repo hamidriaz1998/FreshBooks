@@ -10,6 +10,7 @@ namespace Library.DL
     {
         private static DBConfig Db = DBConfig.GetInstance();
         private static BookDB Instance;
+        private BookDB() { }
         public static BookDB GetInstance()
         {
             if (Instance == null)

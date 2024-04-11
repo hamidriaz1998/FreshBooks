@@ -12,6 +12,7 @@ namespace Library.DL
     {
         private DBConfig Db = DBConfig.GetInstance();
         private static UserDB Instance;
+        private UserDB() { }
         public static UserDB GetInstance()
         {
             if (Instance == null)
