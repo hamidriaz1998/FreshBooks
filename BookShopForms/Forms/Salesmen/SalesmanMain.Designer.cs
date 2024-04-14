@@ -32,20 +32,20 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SalesmanMain));
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.SidePanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.MainPanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.CloseButton = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.OrderHistoryBtn = new Guna.UI2.WinForms.Guna2Button();
             this.SellBooksBtn = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.LogoutBtn = new Guna.UI2.WinForms.Guna2Button();
             this.DashBoardButton = new Guna.UI2.WinForms.Guna2Button();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.OrderHistoryBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.MainPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.CloseButton = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.SidePanel.SuspendLayout();
-            this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2BorderlessForm1
@@ -58,8 +58,8 @@
             // 
             this.SidePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
             this.SidePanel.Controls.Add(this.OrderHistoryBtn);
-            this.SidePanel.Controls.Add(this.SellBooksBtn);
             this.SidePanel.Controls.Add(this.guna2Button2);
+            this.SidePanel.Controls.Add(this.SellBooksBtn);
             this.SidePanel.Controls.Add(this.guna2Button1);
             this.SidePanel.Controls.Add(this.LogoutBtn);
             this.SidePanel.Controls.Add(this.DashBoardButton);
@@ -67,57 +67,29 @@
             this.SidePanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.SidePanel.Location = new System.Drawing.Point(0, 30);
             this.SidePanel.Name = "SidePanel";
-            this.SidePanel.Size = new System.Drawing.Size(200, 502);
+            this.SidePanel.Size = new System.Drawing.Size(213, 502);
             this.SidePanel.TabIndex = 0;
             // 
-            // MainPanel
+            // OrderHistoryBtn
             // 
-            this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainPanel.Location = new System.Drawing.Point(200, 30);
-            this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(801, 502);
-            this.MainPanel.TabIndex = 2;
-            // 
-            // CloseButton
-            // 
-            this.CloseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CloseButton.BackColor = System.Drawing.Color.Transparent;
-            this.CloseButton.FillColor = System.Drawing.Color.Transparent;
-            this.CloseButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(171)))), ((int)(((byte)(174)))));
-            this.CloseButton.IconColor = System.Drawing.Color.White;
-            this.CloseButton.Location = new System.Drawing.Point(952, 1);
-            this.CloseButton.Name = "CloseButton";
-            this.CloseButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(171)))), ((int)(((byte)(174)))));
-            this.CloseButton.Size = new System.Drawing.Size(45, 29);
-            this.CloseButton.TabIndex = 25;
-            this.CloseButton.UseTransparentBackground = true;
-            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
-            // 
-            // guna2ControlBox2
-            // 
-            this.guna2ControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
-            this.guna2ControlBox2.FillColor = System.Drawing.Color.Transparent;
-            this.guna2ControlBox2.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(171)))), ((int)(((byte)(174)))));
-            this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox2.Location = new System.Drawing.Point(901, 1);
-            this.guna2ControlBox2.Name = "guna2ControlBox2";
-            this.guna2ControlBox2.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(171)))), ((int)(((byte)(174)))));
-            this.guna2ControlBox2.Size = new System.Drawing.Size(45, 29);
-            this.guna2ControlBox2.TabIndex = 26;
-            this.guna2ControlBox2.UseTransparentBackground = true;
-            // 
-            // guna2Panel1
-            // 
-            this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
-            this.guna2Panel1.Controls.Add(this.guna2ControlBox2);
-            this.guna2Panel1.Controls.Add(this.CloseButton);
-            this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
-            this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1001, 30);
-            this.guna2Panel1.TabIndex = 1;
+            this.OrderHistoryBtn.BackColor = System.Drawing.Color.Transparent;
+            this.OrderHistoryBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.OrderHistoryBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.OrderHistoryBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.OrderHistoryBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.OrderHistoryBtn.FillColor = System.Drawing.Color.Transparent;
+            this.OrderHistoryBtn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OrderHistoryBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
+            this.OrderHistoryBtn.Image = ((System.Drawing.Image)(resources.GetObject("OrderHistoryBtn.Image")));
+            this.OrderHistoryBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.OrderHistoryBtn.ImageSize = new System.Drawing.Size(30, 30);
+            this.OrderHistoryBtn.Location = new System.Drawing.Point(-3, 245);
+            this.OrderHistoryBtn.Name = "OrderHistoryBtn";
+            this.OrderHistoryBtn.Size = new System.Drawing.Size(221, 45);
+            this.OrderHistoryBtn.TabIndex = 29;
+            this.OrderHistoryBtn.Text = "Order History";
+            this.OrderHistoryBtn.UseTransparentBackground = true;
+            this.OrderHistoryBtn.Click += new System.EventHandler(this.OrderHistoryBtn_Click);
             // 
             // SellBooksBtn
             // 
@@ -129,12 +101,12 @@
             this.SellBooksBtn.FillColor = System.Drawing.Color.Transparent;
             this.SellBooksBtn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SellBooksBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
-            this.SellBooksBtn.Image = global::BookShopForms.Properties.Resources.icons8_dashboard_50;
+            this.SellBooksBtn.Image = ((System.Drawing.Image)(resources.GetObject("SellBooksBtn.Image")));
             this.SellBooksBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.SellBooksBtn.ImageSize = new System.Drawing.Size(30, 30);
-            this.SellBooksBtn.Location = new System.Drawing.Point(0, 347);
+            this.SellBooksBtn.Location = new System.Drawing.Point(-3, 194);
             this.SellBooksBtn.Name = "SellBooksBtn";
-            this.SellBooksBtn.Size = new System.Drawing.Size(197, 45);
+            this.SellBooksBtn.Size = new System.Drawing.Size(224, 45);
             this.SellBooksBtn.TabIndex = 28;
             this.SellBooksBtn.Text = "Sell Books";
             this.SellBooksBtn.UseTransparentBackground = true;
@@ -153,9 +125,9 @@
             this.guna2Button2.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button2.Image")));
             this.guna2Button2.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button2.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button2.Location = new System.Drawing.Point(0, 245);
+            this.guna2Button2.Location = new System.Drawing.Point(0, 347);
             this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(197, 45);
+            this.guna2Button2.Size = new System.Drawing.Size(218, 45);
             this.guna2Button2.TabIndex = 27;
             this.guna2Button2.Text = "Customers";
             this.guna2Button2.UseTransparentBackground = true;
@@ -174,9 +146,9 @@
             this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
             this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button1.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button1.Location = new System.Drawing.Point(0, 194);
+            this.guna2Button1.Location = new System.Drawing.Point(0, 296);
             this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(197, 45);
+            this.guna2Button1.Size = new System.Drawing.Size(218, 45);
             this.guna2Button1.TabIndex = 26;
             this.guna2Button1.Text = "Settings";
             this.guna2Button1.UseTransparentBackground = true;
@@ -195,9 +167,9 @@
             this.LogoutBtn.Image = ((System.Drawing.Image)(resources.GetObject("LogoutBtn.Image")));
             this.LogoutBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.LogoutBtn.ImageSize = new System.Drawing.Size(30, 30);
-            this.LogoutBtn.Location = new System.Drawing.Point(0, 296);
+            this.LogoutBtn.Location = new System.Drawing.Point(0, 398);
             this.LogoutBtn.Name = "LogoutBtn";
-            this.LogoutBtn.Size = new System.Drawing.Size(197, 45);
+            this.LogoutBtn.Size = new System.Drawing.Size(218, 45);
             this.LogoutBtn.TabIndex = 25;
             this.LogoutBtn.Text = "Logout";
             this.LogoutBtn.UseTransparentBackground = true;
@@ -218,7 +190,7 @@
             this.DashBoardButton.ImageSize = new System.Drawing.Size(30, 30);
             this.DashBoardButton.Location = new System.Drawing.Point(0, 143);
             this.DashBoardButton.Name = "DashBoardButton";
-            this.DashBoardButton.Size = new System.Drawing.Size(197, 45);
+            this.DashBoardButton.Size = new System.Drawing.Size(218, 45);
             this.DashBoardButton.TabIndex = 22;
             this.DashBoardButton.Text = "DashBoard";
             this.DashBoardButton.UseTransparentBackground = true;
@@ -238,32 +210,60 @@
             this.guna2PictureBox1.TabStop = false;
             this.guna2PictureBox1.UseTransparentBackground = true;
             // 
-            // OrderHistoryBtn
+            // MainPanel
             // 
-            this.OrderHistoryBtn.BackColor = System.Drawing.Color.Transparent;
-            this.OrderHistoryBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.OrderHistoryBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.OrderHistoryBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.OrderHistoryBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.OrderHistoryBtn.FillColor = System.Drawing.Color.Transparent;
-            this.OrderHistoryBtn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OrderHistoryBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
-            this.OrderHistoryBtn.Image = global::BookShopForms.Properties.Resources.icons8_dashboard_50;
-            this.OrderHistoryBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.OrderHistoryBtn.ImageSize = new System.Drawing.Size(30, 30);
-            this.OrderHistoryBtn.Location = new System.Drawing.Point(3, 389);
-            this.OrderHistoryBtn.Name = "OrderHistoryBtn";
-            this.OrderHistoryBtn.Size = new System.Drawing.Size(197, 45);
-            this.OrderHistoryBtn.TabIndex = 29;
-            this.OrderHistoryBtn.Text = "Order History";
-            this.OrderHistoryBtn.UseTransparentBackground = true;
-            this.OrderHistoryBtn.Click += new System.EventHandler(this.OrderHistoryBtn_Click);
+            this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainPanel.Location = new System.Drawing.Point(213, 30);
+            this.MainPanel.Name = "MainPanel";
+            this.MainPanel.Size = new System.Drawing.Size(842, 502);
+            this.MainPanel.TabIndex = 2;
+            // 
+            // CloseButton
+            // 
+            this.CloseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CloseButton.BackColor = System.Drawing.Color.Transparent;
+            this.CloseButton.FillColor = System.Drawing.Color.Transparent;
+            this.CloseButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(171)))), ((int)(((byte)(174)))));
+            this.CloseButton.IconColor = System.Drawing.Color.White;
+            this.CloseButton.Location = new System.Drawing.Point(1006, 1);
+            this.CloseButton.Name = "CloseButton";
+            this.CloseButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(171)))), ((int)(((byte)(174)))));
+            this.CloseButton.Size = new System.Drawing.Size(45, 29);
+            this.CloseButton.TabIndex = 25;
+            this.CloseButton.UseTransparentBackground = true;
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
+            // 
+            // guna2ControlBox2
+            // 
+            this.guna2ControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
+            this.guna2ControlBox2.FillColor = System.Drawing.Color.Transparent;
+            this.guna2ControlBox2.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(171)))), ((int)(((byte)(174)))));
+            this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox2.Location = new System.Drawing.Point(955, 1);
+            this.guna2ControlBox2.Name = "guna2ControlBox2";
+            this.guna2ControlBox2.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(171)))), ((int)(((byte)(174)))));
+            this.guna2ControlBox2.Size = new System.Drawing.Size(45, 29);
+            this.guna2ControlBox2.TabIndex = 26;
+            this.guna2ControlBox2.UseTransparentBackground = true;
+            // 
+            // guna2Panel1
+            // 
+            this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
+            this.guna2Panel1.Controls.Add(this.guna2ControlBox2);
+            this.guna2Panel1.Controls.Add(this.CloseButton);
+            this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.Size = new System.Drawing.Size(1055, 30);
+            this.guna2Panel1.TabIndex = 1;
             // 
             // SalesmanMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1001, 532);
+            this.ClientSize = new System.Drawing.Size(1055, 532);
             this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.SidePanel);
             this.Controls.Add(this.guna2Panel1);
@@ -272,8 +272,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminMain";
             this.SidePanel.ResumeLayout(false);
-            this.guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            this.guna2Panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
