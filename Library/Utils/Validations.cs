@@ -31,6 +31,23 @@ namespace Library.Utils
             Regex regex = new Regex(@"^[a-zA-Z0-9]{5,20}$");
             return regex.IsMatch(username);
         }
-
+        public bool IsEmailValid(string email)
+        {
+            if (string.IsNullOrEmpty(email))
+            {
+                return false;
+            }
+            Regex regex = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
+            return regex.IsMatch(email);
+        }
+        public bool IsPhoneValid(string phone)
+        {
+            if (string.IsNullOrEmpty(phone))
+            {
+                return false;
+            }
+            Regex regex = new Regex(@"^03[0-4][0-9]{8}$");
+            return regex.IsMatch(phone);
+        }
     }
 }
