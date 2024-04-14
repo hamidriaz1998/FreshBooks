@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BookShopForms.Forms;
 using BookShopForms.Forms.AdminForms;
+using BookShopForms.Forms.Common;
+using Library;
 
 namespace BookShopForms
 {
@@ -16,6 +18,12 @@ namespace BookShopForms
         [STAThread]
         static void Main()
         {
+            // Uncomment to use Database
+            AppSettings.UseDB();
+
+            // Uncomment to use Files
+            // AppSettings.UseFiles();
+
             ObjectHandler.GetUserDL().LoadUsers();
             ObjectHandler.GetBookDL().LoadBooks();
             ObjectHandler.GetCustomerDL().LoadCustomers();
