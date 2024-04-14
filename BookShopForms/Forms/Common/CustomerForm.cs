@@ -1,5 +1,6 @@
 ﻿using Library.BL;
 using Library.DL;
+using Library.Utils;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,7 +10,7 @@ namespace BookShopForms.Forms.Common
 {
     public partial class CustomerForm : Form
     {
-        // TODO: Add Validations for Email and Phone
+        private static Validations Validations = ObjectHandler.GetValidations();
         private static ICustomerDL CustomerDL = ObjectHandler.GetCustomerDL();
         DataTable dt = new DataTable();
         int SelectedRow = 0;
@@ -91,6 +92,16 @@ namespace BookShopForms.Forms.Common
             if (CheckEmpty())
             {
                 MessageBox.Show("Please fill all fields");
+                return false;
+            }
+            if (!Validations.IsEmailValid(EmailBox.Text))
+            {
+                MessageBox.Show("Please enter a valid email");
+                return false;
+            }
+            if (!Validations.IsPhoneValid(PhoneBox.Text))
+            {
+                MessageBox.Show("Please enter a valid phone number");
                 return false;
             }
             return true;
