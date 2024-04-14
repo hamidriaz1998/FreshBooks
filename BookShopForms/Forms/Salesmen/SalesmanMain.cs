@@ -72,5 +72,10 @@ namespace BookShopForms.Forms.Salesmen
         private void guna2Button3_Click(object sender, EventArgs e)
         {
         }
+
+        private void SellBooksBtn_Click(object sender, EventArgs e)
+        {
+            LoadForm(new SellBooks());
+        }
     }
 }

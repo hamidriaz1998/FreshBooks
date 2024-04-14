@@ -41,6 +41,7 @@
             this.CloseButton = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.SellBooksBtn = new Guna.UI2.WinForms.Guna2Button();
             this.SidePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2Panel1.SuspendLayout();
@@ -55,6 +56,7 @@
             // SidePanel
             // 
             this.SidePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
+            this.SidePanel.Controls.Add(this.SellBooksBtn);
             this.SidePanel.Controls.Add(this.guna2Button2);
             this.SidePanel.Controls.Add(this.guna2Button1);
             this.SidePanel.Controls.Add(this.LogoutBtn);
@@ -79,7 +81,7 @@
             this.guna2Button2.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button2.Image")));
             this.guna2Button2.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button2.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button2.Location = new System.Drawing.Point(-3, 220);
+            this.guna2Button2.Location = new System.Drawing.Point(0, 245);
             this.guna2Button2.Name = "guna2Button2";
             this.guna2Button2.Size = new System.Drawing.Size(197, 45);
             this.guna2Button2.TabIndex = 27;
@@ -100,7 +102,7 @@
             this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
             this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button1.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button1.Location = new System.Drawing.Point(0, 180);
+            this.guna2Button1.Location = new System.Drawing.Point(0, 194);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(197, 45);
             this.guna2Button1.TabIndex = 26;
@@ -121,7 +123,7 @@
             this.LogoutBtn.Image = ((System.Drawing.Image)(resources.GetObject("LogoutBtn.Image")));
             this.LogoutBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.LogoutBtn.ImageSize = new System.Drawing.Size(30, 30);
-            this.LogoutBtn.Location = new System.Drawing.Point(0, 271);
+            this.LogoutBtn.Location = new System.Drawing.Point(0, 296);
             this.LogoutBtn.Name = "LogoutBtn";
             this.LogoutBtn.Size = new System.Drawing.Size(197, 45);
             this.LogoutBtn.TabIndex = 25;
@@ -142,7 +144,7 @@
             this.DashBoardButton.Image = global::BookShopForms.Properties.Resources.icons8_dashboard_50;
             this.DashBoardButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.DashBoardButton.ImageSize = new System.Drawing.Size(30, 30);
-            this.DashBoardButton.Location = new System.Drawing.Point(0, 129);
+            this.DashBoardButton.Location = new System.Drawing.Point(0, 143);
             this.DashBoardButton.Name = "DashBoardButton";
             this.DashBoardButton.Size = new System.Drawing.Size(197, 45);
             this.DashBoardButton.TabIndex = 22;
@@ -213,6 +215,27 @@
             this.guna2Panel1.Size = new System.Drawing.Size(1001, 30);
             this.guna2Panel1.TabIndex = 1;
             // 
+            // SellBooksBtn
+            // 
+            this.SellBooksBtn.BackColor = System.Drawing.Color.Transparent;
+            this.SellBooksBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.SellBooksBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.SellBooksBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.SellBooksBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.SellBooksBtn.FillColor = System.Drawing.Color.Transparent;
+            this.SellBooksBtn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SellBooksBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
+            this.SellBooksBtn.Image = global::BookShopForms.Properties.Resources.icons8_dashboard_50;
+            this.SellBooksBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.SellBooksBtn.ImageSize = new System.Drawing.Size(30, 30);
+            this.SellBooksBtn.Location = new System.Drawing.Point(0, 347);
+            this.SellBooksBtn.Name = "SellBooksBtn";
+            this.SellBooksBtn.Size = new System.Drawing.Size(197, 45);
+            this.SellBooksBtn.TabIndex = 28;
+            this.SellBooksBtn.Text = "Sell Books";
+            this.SellBooksBtn.UseTransparentBackground = true;
+            this.SellBooksBtn.Click += new System.EventHandler(this.SellBooksBtn_Click);
+            // 
             // SalesmanMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -245,5 +268,6 @@
         private Guna.UI2.WinForms.Guna2Button LogoutBtn;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button SellBooksBtn;
     }
 }
