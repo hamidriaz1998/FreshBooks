@@ -1,13 +1,8 @@
-﻿using Library.DL;
-using Library.BL;
+﻿using Library.BL;
+using Library.DL;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BookShopForms.Forms.Common
@@ -107,7 +102,7 @@ namespace BookShopForms.Forms.Common
             {
                 return;
             }
-            Customer c = new Customer(NameBox.Text,EmailBox.Text,PhoneBox.Text,AddressBox.Text); 
+            Customer c = new Customer(NameBox.Text, EmailBox.Text, PhoneBox.Text, AddressBox.Text);
             if (CustomerDL.CustomerExists(c))
             {
                 MessageBox.Show("Customer with this email already exists");
@@ -133,7 +128,7 @@ namespace BookShopForms.Forms.Common
                 c.SetEmail(EmailBox.Text);
                 c.SetPhone(PhoneBox.Text);
                 c.SetAddress(AddressBox.Text);
-                CustomerDL.UpdateCustomer(c);   
+                CustomerDL.UpdateCustomer(c);
                 dt.Rows[SelectedRow]["Name"] = NameBox.Text;
                 dt.Rows[SelectedRow]["Email"] = EmailBox.Text;
                 dt.Rows[SelectedRow]["Phone"] = PhoneBox.Text;
