@@ -43,9 +43,10 @@ namespace BookShopForms.Forms.Salesmen
             dr["Price"] = b.GetPrice();
             dr["Quantity"] = o.GetQuantity();
             dr["Total"] = o.GetTotal();
-            dr["Date"] = DateTime.Parse(o.GetDate());
+            dr["Date"] = o.GetDate();
+            OrderDt.Rows.Add(dr);
         }
-        private void LoadData()
+        private void LoadCustomers()
         {
             List<Customer> customers = CustomerDL.GetCustomers();
             foreach (Customer c in customers)
@@ -70,10 +71,28 @@ namespace BookShopForms.Forms.Salesmen
             OrderDt.Columns.Add("Price", typeof(int));
             OrderDt.Columns.Add("Quantity", typeof(int));
             OrderDt.Columns.Add("Total", typeof(int));
-            OrderDt.Columns.Add("Date", typeof(DateTime));
+            OrderDt.Columns.Add("Date", typeof(string));
             OrdersGrid.ReadOnly = true;
             OrdersGrid.DataSource = OrderDt;
-            LoadData();
+            LoadCustomers();
+        }
+
+        private void CustomerGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            CustomerSelectedRow = CustomerGrid.CurrentCell.RowIndex;
+            if (CustomerSelectedRow < 0 || CustomerSelectedRow >= CustomerDt.Rows.Count)
+            {
+                CustomerSelectedRow = -1;
+                return;
+            }
+            int CustomerId = int.Parse(CustomerDt.Rows[CustomerSelectedRow]["Id"].ToString());
+            Customer c = CustomerDL.FindCustomer(CustomerId);
+            List<Order> orders = c.GetOrders();
+            OrderDt.Clear();
+            foreach (Order o in orders)
+            {
+                AddDataRow(o);
+            }
         }
     }
 }

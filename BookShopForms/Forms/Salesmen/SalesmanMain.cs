@@ -77,5 +77,10 @@ namespace BookShopForms.Forms.Salesmen
         {
             LoadForm(new SellBooks());
         }
+
+        private void OrderHistoryBtn_Click(object sender, EventArgs e)
+        {
+            LoadForm(new OrderHistory());
+        }
     }
 }
