@@ -13,10 +13,11 @@ namespace BookShopForms.Forms.Salesmen
 {
     public partial class SalesmanMain : Form
     {
-        public SalesmanMain (User admin)
+        public SalesmanMain (Salesman salesman)
         {
-            ObjectHandler.SetLoggedInUser(admin);
+            ObjectHandler.SetLoggedInUser(salesman);
             InitializeComponent();
+            LoadForm(new DashBoard());
         }
         private void LoadForm(object form)
         {
@@ -41,6 +42,7 @@ namespace BookShopForms.Forms.Salesmen
 
         private void DashBoardButton_Click(object sender, EventArgs e)
         {
+            LoadForm(new DashBoard());
         }
 
         private void BooksButton_Click(object sender, EventArgs e)
@@ -53,16 +55,18 @@ namespace BookShopForms.Forms.Salesmen
 
         private void LogoutBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
             ObjectHandler.SetLoggedInUser(null);
+            this.Close();
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
+            LoadForm(new Settings());
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
+            LoadForm(new CustomerForm());
         }
 
         private void guna2Button3_Click(object sender, EventArgs e)

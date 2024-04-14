@@ -14,6 +14,7 @@ namespace BookShopForms.Forms.Common
 {
     public partial class CustomerForm : Form
     {
+        // TODO: Add Validations for Email and Phone
         private static ICustomerDL CustomerDL = ObjectHandler.GetCustomerDL();
         DataTable dt = new DataTable();
         int SelectedRow = 0;

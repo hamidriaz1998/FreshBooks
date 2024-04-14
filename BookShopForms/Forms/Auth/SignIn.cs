@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Library.BL;
 using Library.DL;
+using BookShopForms.Forms.Salesmen;
 
 namespace BookShopForms.Forms
 {
@@ -60,11 +61,12 @@ namespace BookShopForms.Forms
                 new AdminMain((Admin) u).ShowDialog();
                 this.Show();
             }
-            //else
-            //{
-            //    this.Hide();
-            //    new SalesmanDashboard().Show();
-            //}
+            else if (u.GetType() == "salesman")
+            {
+                this.Hide();
+                new SalesmanMain((Salesman) u).ShowDialog();
+                this.Show();
+            }
         }
     }
 }
