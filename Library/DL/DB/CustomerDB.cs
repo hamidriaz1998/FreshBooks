@@ -9,7 +9,7 @@ namespace Library.DL
 {
     public class CustomerDB : CustomerDL, ICustomerDL
     {
-        private IBookDL bookDL = BookDB.GetInstance();
+        private IBookDL bookDL = AppSettings.GetBookDL();
         private DBConfig dB = DBConfig.GetInstance();
         private static CustomerDB Instance;
         private CustomerDB() { }

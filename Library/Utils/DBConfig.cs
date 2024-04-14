@@ -5,7 +5,7 @@ namespace Library.Utils
 {
     class DBConfig
     {
-        private static string ConnectionString = "Server=localhost\\SQLEXPRESS;Database=BookShop;Trusted_Connection=True;";
+        private static string ConnectionString = AppSettings.GetConnectionString();
         private static DBConfig instance;
         private static SqlConnection connection;
         public static DBConfig GetInstance()
