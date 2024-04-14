@@ -85,7 +85,7 @@ namespace Library.DL
             command.Parameters.AddWithValue("@BookID", order.GetBook().GetID());
             command.Parameters.AddWithValue("@Quantity", order.GetQuantity());
             command.Parameters.AddWithValue("@Total", order.GetTotal());
-            command.Parameters.AddWithValue("@Date", DateTime.Parse(order.GetDate()));
+            command.Parameters.AddWithValue("@Date", order.GetDate());
             command.ExecuteNonQuery();
         }
         protected override void DeleteOrders(Customer customer)
