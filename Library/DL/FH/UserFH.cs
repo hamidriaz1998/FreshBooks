@@ -9,8 +9,8 @@ namespace Library.DL
     public class UserFH : UserDL, IUserDL
     {
         private static UserFH Instance;
-        private string UserFile = "../../../DataFiles/users.txt";
-        private string SalesmanFile = "../../../DataFiles/salesmen.txt";
+        private string UserFile = AppSettings.GetUsersPath();
+        private string SalesmanFile = AppSettings.GetSalesmanPath();
         private UserFH() { }
         public static UserFH GetInstance()
         {

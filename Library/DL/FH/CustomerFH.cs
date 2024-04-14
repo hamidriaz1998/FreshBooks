@@ -8,8 +8,8 @@ namespace Library.DL
     {
         private static CustomerFH Instance;
         private IBookDL bookDL = AppSettings.GetBookDL();
-        private string CustomerPath = "../../../DataFiles/Customers.txt";
-        private string OrderPath = "../../../DataFiles/Orders.txt";
+        private string CustomerPath = AppSettings.GetCustomersPath();
+        private string OrderPath = AppSettings.GetOrdersPath();
         public static CustomerFH GetInstance()
         {
             if (Instance == null)

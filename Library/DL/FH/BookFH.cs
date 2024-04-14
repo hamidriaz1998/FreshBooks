@@ -9,7 +9,7 @@ namespace Library.DL
     {
         // Implement this DL with file handling instead of a database
         private static BookFH Instance;
-        private string Path = "../../../DataFiles/Books.txt";
+        private string Path = AppSettings.GetBooksPath();
         public static BookFH GetInstance()
         {
             if (Instance == null)

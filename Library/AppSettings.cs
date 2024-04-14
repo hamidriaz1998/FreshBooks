@@ -14,6 +14,7 @@ namespace Library
         private static string CustomersPath = DataFilesPath + "Customers.txt";
         private static string OrdersPath = DataFilesPath + "Orders.txt";
         private static string UsersPath = DataFilesPath + "Users.txt";
+        private static string SalesmanPath = DataFilesPath + "Salesmen.txt";
         private static ICustomerDL customerDL;
         private static IBookDL bookDL;
         private static IUserDL userDL;
@@ -53,6 +54,10 @@ namespace Library
         public static string GetUsersPath()
         {
             return UsersPath;
+        }
+        public static string GetSalesmanPath()
+        {
+            return SalesmanPath;
         }
         public static ICustomerDL GetCustomerDL()
         {
