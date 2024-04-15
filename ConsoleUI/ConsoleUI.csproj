@@ -11,4 +11,7 @@
       <HintPath>..\Library\bin\Debug\Library.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+  </ItemGroup>
 </Project>
