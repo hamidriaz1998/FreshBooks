@@ -5,6 +5,16 @@ namespace ConsoleUI
     public class Utility
     {
         private static Validations validations = ObjectHandler.GetValidations();
+        public static void PrintBanner()
+        {
+            Console.Clear();
+            Console.WriteLine(@" _____              _       ____              _        ");
+            Console.WriteLine(@"|  ___| __ ___  ___| |__   | __ )  ___   ___ | | _____ ");
+            Console.WriteLine(@"| |_ | '__/ _ \/ __| '_ \  |  _ \ / _ \ / _ \| |/ / __|");
+            Console.WriteLine(@"|  _|| | |  __/\__ \ | | | | |_) | (_) | (_) |   <\__ \");
+            Console.WriteLine(@"|_|  |_|  \___||___/_| |_| |____/ \___/ \___/|_|\_\___/");
+            Console.WriteLine();
+        }
         // Validations
         public static string? GetValidUsername()
         {
@@ -38,7 +48,7 @@ namespace ConsoleUI
                 return password;
             }
         }
-        public static int GetInt(int min, int max)
+        public static int GetInt()
         {
             while (true)
             {
@@ -49,13 +59,21 @@ namespace ConsoleUI
                     TryAgain();
                     continue;
                 }
-                if (result < min || result > max)
+                return result;
+            }
+        }
+        public static int GetInt(int min, int max)
+        {
+            while (true)
+            {
+                int input = GetInt();
+                if (input < min || input > max)
                 {
-                    Console.WriteLine("Invalid input");
+                    Console.WriteLine($"Input must be between {min} and {max}");
                     TryAgain();
                     continue;
                 }
-                return result;
+                return input;
             }
         }
         public static void TryAgain()
