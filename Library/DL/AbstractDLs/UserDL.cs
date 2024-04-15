@@ -118,6 +118,18 @@ namespace Library.AbstractDLs
             Users.Remove(s);
             RemoveUserFromSource(s);
         }
+        public void RemoveUser(string username)
+        {
+            foreach (User u in Users)
+            {
+                if (u.GetUsername() == username)
+                {
+                    Users.Remove(u);
+                    RemoveUserFromSource(u);
+                    return;
+                }
+            }
+        }
         protected abstract void RemoveUserFromSource(User u);
         protected abstract void RemoveUserFromSource(Salesman s);
         public abstract void UpdateUser(User u);

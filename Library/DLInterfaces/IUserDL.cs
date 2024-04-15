@@ -16,6 +16,7 @@ namespace Library.DL
         List<Salesman> GetSalesmen();
         void RemoveUser(User u);
         void RemoveUser(Salesman s);
+        void RemoveUser(string username);
         void UpdateUser(User u);
         void UpdateUser(Salesman s);
         void LoadUsers();
