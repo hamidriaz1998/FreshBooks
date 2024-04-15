@@ -63,5 +63,10 @@ namespace ConsoleUI
             Console.WriteLine("Press any key to try again");
             Console.ReadKey();
         }
+        public static void PressAnyKey()
+        {
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
+        }
     }
 }
