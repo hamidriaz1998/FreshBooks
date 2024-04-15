@@ -16,6 +16,7 @@ namespace ConsoleUI
                 {
                     Console.WriteLine("Invalid username");
                     Console.WriteLine("Username must be between 5 and 20 characters long, can only contain letters and numbers.");
+                    TryAgain();
                     continue;
                 }
                 return username;
@@ -31,6 +32,7 @@ namespace ConsoleUI
                 {
                     Console.WriteLine("Invalid password");
                     Console.WriteLine("Password must be at least 6 characters and cannot contain ',' or ';'");
+                    TryAgain();
                     continue;
                 }
                 return password;
@@ -44,15 +46,22 @@ namespace ConsoleUI
                 if (!int.TryParse(input, out int result))
                 {
                     Console.WriteLine("Invalid input");
+                    TryAgain();
                     continue;
                 }
                 if (result < min || result > max)
                 {
                     Console.WriteLine("Invalid input");
+                    TryAgain();
                     continue;
                 }
                 return result;
             }
+        }
+        public static void TryAgain()
+        {
+            Console.WriteLine("Press any key to try again");
+            Console.ReadKey();
         }
     }
 }
