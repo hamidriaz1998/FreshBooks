@@ -9,19 +9,10 @@ namespace ConsoleUI.UI
     {
         private static IUserDL userDL = ObjectHandler.GetUserDL();
         private static Validations validations = ObjectHandler.GetValidations();
-        public static void PrintBanner()
-        {
-            Console.Clear();
-            Console.WriteLine(@" _____              _       ____              _        ");
-            Console.WriteLine(@"|  ___| __ ___  ___| |__   | __ )  ___   ___ | | _____ ");
-            Console.WriteLine(@"| |_ | '__/ _ \/ __| '_ \  |  _ \ / _ \ / _ \| |/ / __|");
-            Console.WriteLine(@"|  _|| | |  __/\__ \ | | | | |_) | (_) | (_) |   <\__ \");
-            Console.WriteLine(@"|_|  |_|  \___||___/_| |_| |____/ \___/ \___/|_|\_\___/");
-            Console.WriteLine();
-        }
+
         public static void StartingPage()
         {
-            PrintBanner();
+            Utility.PrintBanner();
             Console.WriteLine("Welcome");
             Console.WriteLine("Choose one of the following: ");
             Console.WriteLine("1. Login");
@@ -33,7 +24,7 @@ namespace ConsoleUI.UI
         {
             while (true)
             {
-                PrintBanner();
+                Utility.PrintBanner();
                 Console.Write("Enter username: ");
                 string? username = Console.ReadLine();
                 Console.Write("Enter password: ");
@@ -52,7 +43,7 @@ namespace ConsoleUI.UI
         {
             while (true)
             {
-                PrintBanner();
+                Utility.PrintBanner();
                 string? username = Utility.GetValidUsername();
                 if (userDL.UserExists(username))
                 {
