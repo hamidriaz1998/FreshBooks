@@ -35,9 +35,9 @@ namespace ConsoleUI.UI
             {
                 PrintBanner();
                 Console.Write("Enter username: ");
-                string username = Console.ReadLine();
+                string? username = Console.ReadLine();
                 Console.Write("Enter password: ");
-                string password = Console.ReadLine();
+                string? password = Console.ReadLine();
                 User u = userDL.Login(username, password);
                 if (u == null)
                 {
@@ -53,14 +53,14 @@ namespace ConsoleUI.UI
             while (true)
             {
                 PrintBanner();
-                string username = Utility.GetValidUsername();
+                string? username = Utility.GetValidUsername();
                 if (userDL.UserExists(username))
                 {
                     Console.WriteLine("Username already exists");
                     Utility.TryAgain();
                     continue;
                 }
-                string password = Utility.GetValidPass();
+                string? password = Utility.GetValidPass();
                 Console.WriteLine("Choose Role: 1) Admin 2) Salesman");
                 Console.Write("Enter 1 or 2: ");
                 int role = Utility.GetInt(1, 2);

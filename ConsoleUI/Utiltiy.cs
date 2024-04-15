@@ -6,12 +6,12 @@ namespace ConsoleUI
     {
         private static Validations validations = ObjectHandler.GetValidations();
         // Validations
-        public static string GetValidUsername()
+        public static string? GetValidUsername()
         {
             while (true)
             {
                 Console.Write("Enter username: ");
-                string username = Console.ReadLine();
+                string? username = Console.ReadLine();
                 if (!validations.IsUsernameValid(username))
                 {
                     Console.WriteLine("Invalid username");
@@ -22,12 +22,12 @@ namespace ConsoleUI
                 return username;
             }
         }
-        public static string GetValidPass()
+        public static string? GetValidPass()
         {
             while (true)
             {
                 Console.Write("Enter password: ");
-                string password = Console.ReadLine();
+                string? password = Console.ReadLine();
                 if (!validations.IsPasswordValid(password))
                 {
                     Console.WriteLine("Invalid password");
@@ -42,7 +42,7 @@ namespace ConsoleUI
         {
             while (true)
             {
-                string input = Console.ReadLine();
+                string? input = Console.ReadLine();
                 if (!int.TryParse(input, out int result))
                 {
                     Console.WriteLine("Invalid input");
