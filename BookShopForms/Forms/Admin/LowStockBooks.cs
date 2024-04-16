@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Guna.UI2.WinForms;
 using Library.BL;
 using Library.DL;
 
@@ -75,22 +76,36 @@ namespace BookShopForms.Forms.AdminForms
                 MessageBox.Show("Please select a book");
                 return;
             }
-            if (StockBox.Text == "")
-            {
-                MessageBox.Show("Please enter a stock amount");
-                return;
-            }
-            if (!int.TryParse(StockBox.Text, out _))
-            {
-                MessageBox.Show("Please enter a valid number");
-                return;
-            }
-            SelectedRow = dataGridView1.CurrentCell.RowIndex;
+             SelectedRow = dataGridView1.CurrentCell.RowIndex;
             Book book = BookDL.FindBook(Convert.ToInt32(dt.Rows[SelectedRow]["Id"]));
             book.SetStock(book.GetStock() + Convert.ToInt32(StockBox.Text));
             BookDL.UpdateBook(book);
             dt.Rows.RemoveAt(SelectedRow);
             MessageBox.Show("Stock updated successfully");  
+        }
+
+        private void StockBox_Validating(object sender, CancelEventArgs e)
+        {
+            Guna2TextBox box = (Guna2TextBox)sender;
+            if (box.Text == "")
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(box, "Please enter a stock amount");
+            }
+            else if (!int.TryParse(box.Text, out _))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(box, "Please enter a valid number");
+            }
+            else if (Convert.ToInt32(box.Text) < 0)
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(box, "Stock amount cannot be negative");
+            }
+            else
+            {
+                e.Cancel = false;
+            }
         }
     }
 }
