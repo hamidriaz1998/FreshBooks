@@ -51,21 +51,6 @@ namespace BookShopForms
             string role = RoleBox.SelectedItem.ToString();
             string username = UsernameBox.Text;
             string password = PasswordBox.Text;
-            if (!validations.IsPasswordValid(password))
-            {
-                MessageBox.Show("Your password needs to be at least 6 characters long and include both letters and numbers. Please note that ',' and ';' are not allowed.");
-                return;
-            }
-            if (!validations.IsUsernameValid(username))
-            {
-                MessageBox.Show("Username must be between 5 and 20 characters long and can only contain letters and numbers.");
-                return;
-            }
-            if (UserDL.UserExists(username))
-            {
-                MessageBox.Show("User already exists");
-                return;
-            }   
             if (role == "Admin")
             {
                 if (UserDL.AdminExists())
@@ -104,6 +89,11 @@ namespace BookShopForms
             {
                 e.Cancel = true;
                 errorProvider1.SetError(box, "Username must be between 5 and 20 characters long and can only contain letters and numbers.");
+            }
+            else if (UserDL.UserExists(box.Text))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(box, "Username already exists");
             }
             else
             {

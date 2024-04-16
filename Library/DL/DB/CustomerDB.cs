@@ -65,7 +65,7 @@ namespace Library.DL
                 int bookID = int.Parse(row["BookID"].ToString());
                 int quantity = int.Parse(row["Quantity"].ToString());
                 string date = row["Date"].ToString();
-                Book book = bookDL.FindBook(bookID);
+                Book book = BookDB.GetInstance().FindBook(bookID);
                 Order order = new Order(book, quantity, date);
                 customer.AddOrder(order);
             }
