@@ -40,6 +40,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.PassUpdateBtn = new Guna.UI2.WinForms.Guna2Button();
             this.CurrencyUpdateBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2BorderlessForm1
@@ -67,6 +69,7 @@
             this.OldPassBox.Size = new System.Drawing.Size(146, 22);
             this.OldPassBox.TabIndex = 26;
             this.OldPassBox.UseSystemPasswordChar = true;
+            this.OldPassBox.Validating += new System.ComponentModel.CancelEventHandler(this.OldPassBox_Validating);
             // 
             // label1
             // 
@@ -98,6 +101,7 @@
             this.NewPassBox.Size = new System.Drawing.Size(146, 22);
             this.NewPassBox.TabIndex = 28;
             this.NewPassBox.UseSystemPasswordChar = true;
+            this.NewPassBox.Validating += new System.ComponentModel.CancelEventHandler(this.NewPassBox_Validating);
             // 
             // label2
             // 
@@ -129,6 +133,7 @@
             this.ConfirmPassBox.Size = new System.Drawing.Size(146, 22);
             this.ConfirmPassBox.TabIndex = 30;
             this.ConfirmPassBox.UseSystemPasswordChar = true;
+            this.ConfirmPassBox.Validating += new System.ComponentModel.CancelEventHandler(this.ConfirmPassBox_Validating);
             // 
             // label3
             // 
@@ -203,6 +208,10 @@
             this.CurrencyUpdateBtn.Text = "Update";
             this.CurrencyUpdateBtn.Click += new System.EventHandler(this.CurrencyUpdateBtn_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -222,6 +231,7 @@
             this.Name = "Settings";
             this.Text = "Settings";
             this.Load += new System.EventHandler(this.Settings_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -240,5 +250,6 @@
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2Button CurrencyUpdateBtn;
         private Guna.UI2.WinForms.Guna2Button PassUpdateBtn;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

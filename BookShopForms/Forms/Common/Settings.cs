@@ -10,6 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Guna.UI2.WinForms;
+using Library.Utils;
 
 namespace BookShopForms.Forms.Common
 {
@@ -17,6 +19,7 @@ namespace BookShopForms.Forms.Common
     {
         private User LoggedInUser = ObjectHandler.GetLoggedInUser();
         private static IUserDL UserDL = ObjectHandler.GetUserDL();
+        private static Validations validations = ObjectHandler.GetValidations();
         public Settings()
         {
             InitializeComponent();
@@ -68,23 +71,73 @@ namespace BookShopForms.Forms.Common
 
         private void PassUpdateBtn_Click(object sender, EventArgs e)
         {
-            if (CheckEmpty())
-            {
-                MessageBox.Show("Please fill all fields");
-                return;
-            }
-            if (OldPassBox.Text != LoggedInUser.GetPassword())
-            {
-                MessageBox.Show("Old password is incorrect");
-                return;
-            }
-            if (NewPassBox.Text != ConfirmPassBox.Text)
-            {
-                MessageBox.Show("Passwords do not match");
-                return;
-            }
             LoggedInUser.SetPassword(NewPassBox.Text);
             UpdateUser();
+        }
+
+        private void OldPassBox_Validating(object sender, CancelEventArgs e)
+        {
+            Guna2TextBox box = (Guna2TextBox)sender;
+            if (box.Text == "")
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(box, "Please enter your old password");
+            }
+            else if (box.Text != LoggedInUser.GetPassword())
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(box, "Old password is incorrect");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.Clear();
+            }
+        }
+
+        private void NewPassBox_Validating(object sender, CancelEventArgs e)
+        {
+            Guna2TextBox box = (Guna2TextBox)sender;
+            if (box.Text == "")
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(box, "Please enter a new password");
+            }
+            else if (box.Text == LoggedInUser.GetPassword())
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(box, "New password cannot be the same as the old password");
+            }
+            else if (!validations.IsPasswordValid(box.Text))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(box, "Password must be at least 6 characters long, can have special chars except ',' and ';', no spaces.");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.Clear();
+            }
+        }
+
+        private void ConfirmPassBox_Validating(object sender, CancelEventArgs e)
+        {
+            Guna2TextBox box = (Guna2TextBox)sender;
+            if (box.Text == "")
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(box, "Please confirm your new password");
+            }
+            else if (box.Text != NewPassBox.Text)
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(box, "Passwords do not match");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.Clear();
+            }
         }
     }
 }
