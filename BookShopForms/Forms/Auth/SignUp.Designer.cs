@@ -42,7 +42,9 @@
             this.BackButton = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // UsernameBox
@@ -63,6 +65,7 @@
             this.UsernameBox.SelectedText = "";
             this.UsernameBox.Size = new System.Drawing.Size(314, 36);
             this.UsernameBox.TabIndex = 0;
+            this.UsernameBox.Validating += new System.ComponentModel.CancelEventHandler(this.UsernameBox_Validating);
             // 
             // PasswordBox
             // 
@@ -83,6 +86,7 @@
             this.PasswordBox.Size = new System.Drawing.Size(314, 36);
             this.PasswordBox.TabIndex = 1;
             this.PasswordBox.UseSystemPasswordChar = true;
+            this.PasswordBox.Validating += new System.ComponentModel.CancelEventHandler(this.PasswordBox_Validating);
             // 
             // RoleBox
             // 
@@ -229,6 +233,10 @@
             this.guna2ControlBox1.UseTransparentBackground = true;
             this.guna2ControlBox1.Click += new System.EventHandler(this.CloseButton_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // SignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -252,6 +260,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -272,6 +281,7 @@
         private Guna.UI2.WinForms.Guna2Button BackButton;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
 

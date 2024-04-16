@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Guna.UI2.WinForms;
 using Library.BL;
 using Library.DL;
 using Library.Utils;
@@ -93,6 +94,34 @@ namespace BookShopForms
                 {
                     MessageBox.Show("An Error occured"); return;
                 }
+            }
+        }
+
+        private void UsernameBox_Validating(object sender, CancelEventArgs e)
+        {
+            Guna2TextBox box = (Guna2TextBox)sender;
+            if (!validations.IsUsernameValid(box.Text))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(box, "Username must be between 5 and 20 characters long and can only contain letters and numbers.");
+            }
+            else
+            {
+                errorProvider1.Clear();
+            }
+        }
+
+        private void PasswordBox_Validating(object sender, CancelEventArgs e)
+        {
+            Guna2TextBox box = (Guna2TextBox)sender;
+            if (!validations.IsPasswordValid(box.Text))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(box, "Your password needs to be at least 6 characters long and include both letters and numbers. Please note that ',' and ';' are not allowed.");
+            }
+            else
+            {
+                errorProvider1.Clear();
             }
         }
     }
