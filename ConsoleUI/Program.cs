@@ -42,7 +42,10 @@ namespace ConsoleUI
                                     choice = Utility.GetInt(1, 3);
                                     if (choice == 1)
                                     {
-                                        // Add User
+                                        Salesman s = UserUI.AddUser();
+                                        userDL.AddUser(s);
+                                        Console.WriteLine("User Added Successfully.");
+                                        Utility.PressAnyKey();
                                     }
                                     else if (choice == 2)
                                     {
@@ -66,6 +69,7 @@ namespace ConsoleUI
                 {
                     User u = LoginUI.SignUp();
                     userDL.AddUser(u);
+                    Console.WriteLine("Signed up successfully.");
                     Utility.PressAnyKey();
                 }
                 else
