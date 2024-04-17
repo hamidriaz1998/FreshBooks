@@ -42,6 +42,7 @@ namespace ConsoleUI
                                     choice = Utility.GetInt(1, 3);
                                     if (choice == 1)
                                     {
+                                        // Add User
                                         Salesman s = UserUI.GetUserToAdd();
                                         userDL.AddUser(s);
                                         Console.WriteLine("User Added Successfully.");
@@ -49,6 +50,7 @@ namespace ConsoleUI
                                     }
                                     else if (choice == 2)
                                     {
+                                        // Remove User
                                         string username = UserUI.GetUserToRemove();
                                         userDL.RemoveUser(username);
                                         Console.WriteLine("User Removed Successfully.");
@@ -56,6 +58,7 @@ namespace ConsoleUI
                                     }
                                     else if (choice == 3)
                                     {
+                                        // Update User
                                         Salesman s = UserUI.GetUpdatedUser();
                                         userDL.UpdateUser(s);
                                         Console.WriteLine("User Updated Successfully.");
@@ -63,14 +66,31 @@ namespace ConsoleUI
                                     }
                                     else if (choice == 4)
                                     {
+                                        // List Users
                                         UserUI.ListUsers();
                                         Utility.PressAnyKey();
                                     }
-                                    else
+                                    else if (choice == 5)
                                     {
+                                        // Go Back
                                         break;
                                     }
+                                    else
+                                    {
+                                        Console.WriteLine("Invalid input");
+                                        Utility.TryAgain();
+                                    }
                                 }
+                            }
+                            else if (choice == 4)
+                            {
+                                // Logout
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Invalid input");
+                                Utility.TryAgain();
                             }
                         }
                     }
