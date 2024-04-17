@@ -42,14 +42,21 @@ namespace ConsoleUI
                                     choice = Utility.GetInt(1, 3);
                                     if (choice == 1)
                                     {
-                                        Salesman s = UserUI.AddUser();
+                                        Salesman s = UserUI.GetUserToAdd();
                                         userDL.AddUser(s);
                                         Console.WriteLine("User Added Successfully.");
                                         Utility.PressAnyKey();
                                     }
                                     else if (choice == 2)
                                     {
-                                        // Remove User
+                                        string username = UserUI.GetUserToRemove();
+                                        userDL.RemoveUser(username);
+                                        Console.WriteLine("User Removed Successfully.");
+                                        Utility.PressAnyKey();
+                                    }
+                                    else if (choice == 3)
+                                    {
+                                        // Update User
                                     }
                                     else
                                     {

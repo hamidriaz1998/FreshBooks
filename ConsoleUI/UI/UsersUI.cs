@@ -12,10 +12,11 @@ namespace ConsoleUI.UI
             Console.WriteLine("Choose one of the following: ");
             Console.WriteLine("1. Add user");
             Console.WriteLine("2. Remove user");
-            Console.WriteLine("3. Go back");
-            Console.Write("Enter 1, 2 or 3: ");
+            Console.WriteLine("3. Update user");
+            Console.WriteLine("4. Go back");
+            Console.Write("Enter 1, 2, 3 or 4: ");
         }
-        public static Salesman AddUser()
+        public static Salesman GetUserToAdd()
         {
             while (true)
             {
@@ -37,20 +38,21 @@ namespace ConsoleUI.UI
                 return new Salesman(username, password, earnings, salary, sales);
             }
         }
-        public static void RemoveUser()
+        public static string? GetUserToRemove()
         {
-            Utility.PrintBanner();
-            Console.Write("Enter username: ");
-            string? username = Console.ReadLine();
-            if (!userDL.UserExists(username))
+            while (true)
             {
-                Console.WriteLine("User does not exist");
-                Utility.TryAgain();
-                return;
+                Utility.PrintBanner();
+                Console.Write("Enter username: ");
+                string? username = Console.ReadLine();
+                if (!userDL.UserExists(username))
+                {
+                    Console.WriteLine("User does not exist");
+                    Utility.TryAgain();
+                    continue;
+                }
+                return username;
             }
-            userDL.RemoveUser(username);
-            Console.WriteLine("User removed successfully");
-            Utility.PressAnyKey();
         }
     }
 }
