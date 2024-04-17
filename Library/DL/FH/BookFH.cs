@@ -2,6 +2,7 @@ using Library.AbstractDLs;
 using Library.BL;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Library.DL
 {
@@ -21,7 +22,10 @@ namespace Library.DL
         {
             if (book.GetID() == 0)
             {
-                book.SetID(Books.Count + 1);
+                if (Books.Count == 0)
+                    book.SetID(1);
+                else
+                    book.SetID(Books.Last().GetID() + 1);
             }
             base.AddBook(book);
         }

@@ -1,6 +1,7 @@
 using Library.BL;
 using Library.AbstractDLs;
 using System.IO;
+using System.Linq;
 
 namespace Library.DL
 {
@@ -23,7 +24,14 @@ namespace Library.DL
         {
             if (customer.GetID() == 0)
             {
-                customer.SetID(Customers.Count + 1);
+                if (Customers.Count == 0)
+                {
+                    customer.SetID(1);
+                }
+                else
+                {
+                    customer.SetID(Customers.Last().GetID() + 1);
+                }
             }
             base.AddCustomer(customer);
         }

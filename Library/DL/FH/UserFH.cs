@@ -24,7 +24,14 @@ namespace Library.DL
         {
             if (u.GetID() == 0)
             {
-                u.SetID(Users.Count + 1);
+                if (Users.Count == 0)
+                {
+                    u.SetID(1);
+                }
+                else
+                {
+                    u.SetID(Users.Last().GetID() + 1);
+                }
             }
             return base.AddUser(u);
         }
