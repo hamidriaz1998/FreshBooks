@@ -40,20 +40,21 @@ namespace ConsoleUI.UI
                 return new Salesman(username, password, earnings, salary, sales);
             }
         }
-        public static string? GetUserToRemove()
+        public static Salesman GetUserToRemove()
         {
             while (true)
             {
-                Utility.PrintBanner();
-                Console.Write("Enter username: ");
-                string? username = Console.ReadLine();
-                if (!userDL.UserExists(username))
+                ListUsers();
+                Console.Write("Enter ID of user to update: ");
+                int id = Utility.GetInt();
+                Salesman s = (Salesman)userDL.GetUser(id);
+                if (s == null)
                 {
                     Console.WriteLine("User does not exist");
                     Utility.TryAgain();
                     continue;
                 }
-                return username;
+                return s;
             }
         }
         public static void ListUsers()
@@ -70,11 +71,16 @@ namespace ConsoleUI.UI
         {
             while (true)
             {
-                Utility.PrintBanner();
                 ListUsers();
                 Console.Write("Enter ID of user to update: ");
                 int id = Utility.GetInt();
                 Salesman s = (Salesman)userDL.GetUser(id);
+                if (s == null)
+                {
+                    Console.WriteLine("User does not exist");
+                    Utility.TryAgain();
+                    continue;
+                }
                 Console.WriteLine("Enter new values for the user.");
                 string? username = Utility.GetValidUsername();
                 if (userDL.UserExists(username))

@@ -39,7 +39,7 @@ namespace ConsoleUI
                                 {
                                     // Manage Users
                                     UserUI.ManageUsers();
-                                    choice = Utility.GetInt(1, 3);
+                                    choice = Utility.GetInt(1, 5);
                                     if (choice == 1)
                                     {
                                         // Add User
@@ -51,8 +51,8 @@ namespace ConsoleUI
                                     else if (choice == 2)
                                     {
                                         // Remove User
-                                        string username = UserUI.GetUserToRemove();
-                                        userDL.RemoveUser(username);
+                                        Salesman s = UserUI.GetUserToRemove();
+                                        userDL.RemoveUser(s);
                                         Console.WriteLine("User Removed Successfully.");
                                         Utility.PressAnyKey();
                                     }
