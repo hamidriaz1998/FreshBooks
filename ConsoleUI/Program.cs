@@ -29,8 +29,32 @@ namespace ConsoleUI
                     User u = LoginUI.Login();
                     if (u.GetType() == "admin")
                     {
-                        Console.WriteLine("Signed in as admin");
-                        Utility.PressAnyKey();
+                        while (true)
+                        { // Admin Dashboard
+                            AdminUI.MainMenu((Admin)u);
+                            choice = Utility.GetInt(1, 4);
+                            if (choice == 1)
+                            {
+                                while (true)
+                                {
+                                    // Manage Users
+                                    UserUI.ManageUsers();
+                                    choice = Utility.GetInt(1, 3);
+                                    if (choice == 1)
+                                    {
+                                        // Add User
+                                    }
+                                    else if (choice == 2)
+                                    {
+                                        // Remove User
+                                    }
+                                    else
+                                    {
+                                        break;
+                                    }
+                                }
+                            }
+                        }
                     }
                     else
                     {
