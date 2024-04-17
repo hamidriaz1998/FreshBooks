@@ -9,8 +9,20 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            AppSettings.UseDB(); // Use this line to switch to DB
-            // AppSettings.UseFH(); // Use this line to switch to File Handling
+            Utility.SourceMenu();
+            int source = Utility.GetInt(1, 3);
+            if (source == 1)
+            {
+                AppSettings.UseDB();
+            }
+            else if (source == 2)
+            {
+                AppSettings.UseFH();
+            }
+            else
+            {
+                return;
+            }
 
             IUserDL userDL = ObjectHandler.GetUserDL();
             IBookDL bookDL = ObjectHandler.GetBookDL();

@@ -15,6 +15,15 @@ namespace ConsoleUI
             Console.WriteLine(@"|_|  |_|  \___||___/_| |_| |____/ \___/ \___/|_|\_\___/");
             Console.WriteLine();
         }
+        public static void SourceMenu()
+        {
+            PrintBanner();
+            Console.WriteLine("Choose one of the following: ");
+            Console.WriteLine("1. Use DataBase");
+            Console.WriteLine("2. Use File Handling");
+            Console.WriteLine("3. Exit");
+            Console.Write("Enter 1, 2 or 3: ");
+        }
         // Validations
         public static string? GetValidUsername()
         {
