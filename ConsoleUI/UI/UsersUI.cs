@@ -14,8 +14,9 @@ namespace ConsoleUI.UI
             Console.WriteLine("1. Add user");
             Console.WriteLine("2. Remove user");
             Console.WriteLine("3. Update user");
-            Console.WriteLine("4. Go back");
-            Console.Write("Enter 1, 2, 3 or 4: ");
+            Console.WriteLine("4. List All users");
+            Console.WriteLine("5. Go back");
+            Console.Write("Enter 1, 2, 3, 4 or 5: ");
         }
         public static Salesman GetUserToAdd()
         {

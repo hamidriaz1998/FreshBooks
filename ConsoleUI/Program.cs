@@ -61,6 +61,11 @@ namespace ConsoleUI
                                         Console.WriteLine("User Updated Successfully.");
                                         Utility.PressAnyKey();
                                     }
+                                    else if (choice == 4)
+                                    {
+                                        UserUI.ListUsers();
+                                        Utility.PressAnyKey();
+                                    }
                                     else
                                     {
                                         break;
