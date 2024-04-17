@@ -56,7 +56,10 @@ namespace ConsoleUI
                                     }
                                     else if (choice == 3)
                                     {
-                                        // Update User
+                                        Salesman s = UserUI.GetUpdatedUser();
+                                        userDL.UpdateUser(s);
+                                        Console.WriteLine("User Updated Successfully.");
+                                        Utility.PressAnyKey();
                                     }
                                     else
                                     {
