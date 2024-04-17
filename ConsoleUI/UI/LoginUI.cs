@@ -39,7 +39,7 @@ namespace ConsoleUI.UI
                 return u;
             }
         }
-        public static void SignUp()
+        public static User SignUp()
         {
             while (true)
             {
@@ -63,11 +63,11 @@ namespace ConsoleUI.UI
                         Utility.TryAgain();
                         continue;
                     }
-                    userDL.AddUser(new Admin(username, password));
+                    return new Admin(username, password);
                 }
                 else
                 {
-                    userDL.AddUser(new Salesman(username, password));
+                    return new Salesman(username, password);
                 }
             }
         }

@@ -31,18 +31,18 @@ namespace ConsoleUI
                     {
                         Console.WriteLine("Signed in as admin");
                         Utility.PressAnyKey();
-                        // AdminUI.MainMenu((Admin)u);
                     }
                     else
                     {
                         Console.WriteLine("Signed in as salesman");
                         Utility.PressAnyKey();
-                        // SalesmanUI.MainMenu((Salesman)u);
                     }
                 }
                 else if (choice == 2)
                 {
-                    LoginUI.SignUp();
+                    User u = LoginUI.SignUp();
+                    userDL.AddUser(u);
+                    Utility.PressAnyKey();
                 }
                 else
                 {

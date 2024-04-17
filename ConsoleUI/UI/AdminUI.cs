@@ -24,7 +24,7 @@ namespace ConsoleUI.UI
                 }
                 else if (choice == 2)
                 {
-                    BooksUI.ManageBooks();
+                    // BooksUI.ManageBooks();
                 }
                 else if (choice == 3)
                 {
