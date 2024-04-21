@@ -89,7 +89,7 @@ namespace BookShopForms.Forms.Common
         }
         private bool CheckValidations()
         {
-            if (IsValidInput())
+            if (!IsValidInput())
             {
                 MessageBox.Show("Empty fields are not allowed. ',' or ';' are also not allowed");
                 return false;

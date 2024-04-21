@@ -94,7 +94,7 @@ namespace BookShopForms.Forms.AdminForms
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            if (IsInputValid())
+            if (!IsInputValid())
             {
                 MessageBox.Show("Empty fields are not allowed. ',' or ';' are also not allowed");
                 return;
