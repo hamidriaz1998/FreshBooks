@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Library.BL;
 using Library.DL;
+using Library.Utils;
 
 namespace BookShopForms.Forms.AdminForms
 {
     public partial class BookForm : Form
     {
+        private Validations Validations = new Validations();
         private User LoggedInUser = ObjectHandler.GetLoggedInUser();
         private DataTable dt = new DataTable();
         private IBookDL BookDL = ObjectHandler.GetBookDL();
@@ -73,9 +75,9 @@ namespace BookShopForms.Forms.AdminForms
             dataGridView1.DataSource = dt;
             dataGridView1.ReadOnly = true;
         }
-        private bool CheckEmpty()
+        private bool IsInputValid()
         {
-            if (string.IsNullOrEmpty(TitleBox.Text) || string.IsNullOrEmpty(AuthorBox.Text) || string.IsNullOrEmpty(IsbnBox.Text) || string.IsNullOrEmpty(YearBox.Text) || string.IsNullOrEmpty(priceBox.Text) || string.IsNullOrEmpty(stockBox.Text) || string.IsNullOrEmpty(minStockBox.Text))
+            if (Validations.ValidInput(TitleBox.Text) && Validations.ValidInput(AuthorBox.Text) && Validations.ValidInput(IsbnBox.Text) && Validations.ValidInput(YearBox.Text) && Validations.ValidInput(priceBox.Text) && Validations.ValidInput(stockBox.Text) && Validations.ValidInput(minStockBox.Text))
             {
                 return true;
             }
@@ -92,9 +94,9 @@ namespace BookShopForms.Forms.AdminForms
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            if (CheckEmpty())
+            if (IsInputValid())
             {
-                MessageBox.Show("Please fill all fields");
+                MessageBox.Show("Empty fields are not allowed. ',' or ';' are also not allowed");
                 return;
             }
             if (!CheckInt())
@@ -136,9 +138,9 @@ namespace BookShopForms.Forms.AdminForms
 
         private void updateBtn_Click(object sender, EventArgs e)
         {
-            if (CheckEmpty())
+            if (IsInputValid())
             {
-                MessageBox.Show("Please fill all fields");
+                MessageBox.Show("Empty fields are not allowed. ',' or ';' are also not allowed");
                 return;
             }
             if (!CheckInt())
