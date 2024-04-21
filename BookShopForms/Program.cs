@@ -24,12 +24,9 @@ namespace BookShopForms
             // Uncomment to use Files
             // AppSettings.UseFiles();
 
-            ObjectHandler.GetUserDL().LoadUsers();
-            ObjectHandler.GetBookDL().LoadBooks();
-            ObjectHandler.GetCustomerDL().LoadCustomers();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Landing());
+            Application.Run(new Source());
         }
     }
 }
