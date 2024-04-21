@@ -12,6 +12,14 @@ namespace Library.Utils
                 Instance = new Validations();
             return Instance;
         }
+        public bool ValidInput(string input)
+        {
+            if (string.IsNullOrEmpty(input))
+                return false;
+            // Does not contain ',' or ';'
+            Regex regex = new Regex(@"^[^,;]*$");
+            return true;
+        }
         public bool IsPasswordValid(string password)
         {
             // Password must be at least 6 characters long, can have special chars except ',' and ';', no spaces.
