@@ -72,9 +72,9 @@ namespace BookShopForms.Forms.Common
             PhoneBox.Text = dt.Rows[SelectedRow]["Phone"].ToString();
             AddressBox.Text = dt.Rows[SelectedRow]["Address"].ToString();
         }
-        private bool CheckEmpty()
+        private bool IsValidInput()
         {
-            if (NameBox.Text == "" || EmailBox.Text == "" || PhoneBox.Text == "" || AddressBox.Text == "")
+            if (Validations.ValidInput(NameBox.Text) && Validations.ValidInput(EmailBox.Text) && Validations.ValidInput(PhoneBox.Text) && Validations.ValidInput(AddressBox.Text))
             {
                 return true;
             }
@@ -89,9 +89,9 @@ namespace BookShopForms.Forms.Common
         }
         private bool CheckValidations()
         {
-            if (CheckEmpty())
+            if (IsValidInput())
             {
-                MessageBox.Show("Please fill all fields");
+                MessageBox.Show("Empty fields are not allowed. ',' or ';' are also not allowed");
                 return false;
             }
             if (!Validations.IsEmailValid(EmailBox.Text))
