@@ -47,17 +47,17 @@ namespace Library.BL
             Currency = currency;
         }
         // Methods
-        public bool UsernamesMatch(string username)
+        public bool UsernameMatch(string username)
         {
             return Username == username;
         }
-        public bool PasswordsMatch(string password)
+        public bool PasswordMatch(string password)
         {
             return Password == password;
         }
         public bool Login(string username, string password)
         {
-            return UsernamesMatch(username) && PasswordsMatch(password);
+            return UsernameMatch(username) && PasswordMatch(password);
         }
 
         public new abstract string GetType();
