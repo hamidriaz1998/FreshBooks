@@ -55,9 +55,9 @@ namespace Library.BL
             Earnings += price;
             Sales++;
         }
-        public void AddSalary()
+        public void AddSalary(float amount)
         {
-            Earnings += Salary;
+            Salary += amount;
         }
         public override string GetType()
         {
