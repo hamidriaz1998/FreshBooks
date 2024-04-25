@@ -94,6 +94,61 @@ namespace ConsoleUI
                                     }
                                 }
                             }
+                            else if (choice == 2)
+                            {
+                                // Manage Books
+                                while (true)
+                                {
+                                    BooksUI.ManageBooks();
+                                    choice = Utility.GetInt(1, 6);
+                                    if (choice == 1)
+                                    {
+                                        // Add Book
+                                        Book b = BooksUI.GetBookData();
+                                        bookDL.AddBook(b);
+                                        Console.WriteLine("Book Added Successfully.");
+                                        Utility.PressAnyKey();
+                                    }
+                                    else if (choice == 2)
+                                    {
+                                        // Update Book
+                                        Book b = BooksUI.GetUpdatedBook();
+                                        bookDL.UpdateBook(b);
+                                        Console.WriteLine("Book Updated Successfully.");
+                                        Utility.PressAnyKey();
+                                    }
+                                    else if (choice == 3)
+                                    {
+                                        // Low Stock Books
+                                        BooksUI.ListBooks(bookDL.GetLowStockBooks());
+                                        Utility.PressAnyKey();
+                                    }
+                                    else if (choice == 4)
+                                    {
+                                        // Remove Book
+                                        Book b = BooksUI.GetBook();
+                                        bookDL.RemoveBook(b);
+                                        Console.WriteLine("Book Removed Successfully.");
+                                        Utility.PressAnyKey();
+                                    }
+                                    else if (choice == 5)
+                                    {
+                                        // List All Books
+                                        BooksUI.ListBooks(bookDL.GetBooks());
+                                        Utility.PressAnyKey();
+                                    }
+                                    else if (choice == 6)
+                                    {
+                                        // Go Back
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Invalid input");
+                                        Utility.TryAgain();
+                                    }
+                                }
+                            }
                             else if (choice == 4)
                             {
                                 // Logout
