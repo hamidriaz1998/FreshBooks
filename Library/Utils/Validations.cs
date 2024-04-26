@@ -35,8 +35,8 @@ namespace Library.Utils
             {
                 return false;
             }
-            // Username must be between 5 and 20 characters long, can only contain letters and numbers.
-            Regex regex = new Regex(@"^[a-zA-Z0-9]{5,20}$");
+            // Username must be between 4 and 20 characters long, can only contain letters and numbers.
+            Regex regex = new Regex(@"^[a-zA-Z0-9]{4,20}$");
             return regex.IsMatch(username);
         }
         public bool IsEmailValid(string email)
