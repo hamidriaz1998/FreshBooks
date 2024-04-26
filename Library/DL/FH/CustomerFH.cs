@@ -8,7 +8,7 @@ namespace Library.DL
     public class CustomerFH : CustomerDL, ICustomerDL
     {
         private static CustomerFH Instance;
-        private IBookDL bookDL = AppSettings.GetBookDL();
+        private IBookDL bookDL = BookFH.GetInstance();
         private string CustomerPath = AppSettings.GetCustomersPath();
         private string OrderPath = AppSettings.GetOrdersPath();
         public static CustomerFH GetInstance()
