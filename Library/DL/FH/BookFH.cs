@@ -8,7 +8,6 @@ namespace Library.DL
 {
     public class BookFH : BookDL, IBookDL
     {
-        // Implement this DL with file handling instead of a database
         private static BookFH Instance;
         private string Path = AppSettings.GetBooksPath();
         public static BookFH GetInstance()
