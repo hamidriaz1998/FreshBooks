@@ -91,6 +91,14 @@ namespace BookShopForms.Forms.AdminForms
             }
             return false;
         }
+        private bool CheckNegative()
+        {
+            if (int.Parse(YearBox.Text) < 0 || int.Parse(priceBox.Text) < 0 || int.Parse(stockBox.Text) < 0 || int.Parse(minStockBox.Text) < 0)
+            {
+                return true;
+            }
+            return false;
+        }
 
         private void AddButton_Click(object sender, EventArgs e)
         {
@@ -102,6 +110,11 @@ namespace BookShopForms.Forms.AdminForms
             if (!CheckInt())
             {
                 MessageBox.Show("Please enter valid numbers");
+                return;
+            }
+            if (CheckNegative())
+            {
+                MessageBox.Show("Please enter positive numbers");
                 return;
             }
             if (BookDL.BookExists(IsbnBox.Text))
