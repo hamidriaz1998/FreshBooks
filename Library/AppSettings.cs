@@ -9,7 +9,7 @@ namespace Library
     public class AppSettings
     {
         private static string ConnectionString = "Server=localhost\\SQLEXPRESS;Database=BookShop;Trusted_Connection=True;";
-        private static string DataFilesPath = "../../../DataFiles/";
+        private static string DataFilesPath = @"D:\university lectures\Semester2\PDProjects\FreshBooks\DataFiles\";
         private static string BooksPath = DataFilesPath + "Books.txt";
         private static string CustomersPath = DataFilesPath + "Customers.txt";
         private static string OrdersPath = DataFilesPath + "Orders.txt";
