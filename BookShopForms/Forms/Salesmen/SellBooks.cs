@@ -114,6 +114,11 @@ namespace BookShopForms.Forms.Salesmen
                 MessageBox.Show("Please enter a valid number");
                 return;
             }
+            if (int.Parse(QuantityBox.Text) < 0)
+            {
+                MessageBox.Show("Quantity cannot be negative");
+                return;
+            }
             if (BookSelectedRow == -1)
             {
                 MessageBox.Show("Please select a book");
