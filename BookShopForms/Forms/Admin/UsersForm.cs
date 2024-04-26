@@ -130,7 +130,7 @@ namespace BookShopForms.Forms.AdminForms
             }
             if (!validations.IsUsernameValid(UsernameBox.Text))
             {
-                MessageBox.Show("Username must be between 5 and 20 characters long and can only contain letters and numbers.");
+                MessageBox.Show("Username must be between 4 and 20 characters long and can only contain letters and numbers.");
                 return false;
             }
             if (!validations.IsPasswordValid(PasswordBox.Text))
