@@ -38,5 +38,9 @@ namespace Library.Utils
                 return false;
             }
         }
+        public void CloseConnection()
+        {
+            connection.Close();
+        }
     }
 }
