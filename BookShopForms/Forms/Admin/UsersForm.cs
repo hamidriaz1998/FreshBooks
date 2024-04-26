@@ -90,6 +90,14 @@ namespace BookShopForms.Forms.AdminForms
             }
             return false;
         }
+        private bool CheckNegative()
+        {
+            if (int.Parse(EarningsBox.Text) < 0 || int.Parse(SalaryBox.Text) < 0)
+            {
+                return true;
+            }
+            return false;
+        }
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             SelectedRow = dataGridView1.CurrentCell.RowIndex;
@@ -113,6 +121,11 @@ namespace BookShopForms.Forms.AdminForms
             if (!CheckInt())
             {
                 MessageBox.Show("Earnings and Salary must be integers");
+                return false;
+            }
+            if (CheckNegative())
+            {
+                MessageBox.Show("Earnings and Salary must be positive");
                 return false;
             }
             if (!validations.IsUsernameValid(UsernameBox.Text))
