@@ -67,7 +67,8 @@ namespace Library.DL
         }
         protected override void RemoveFromSource(Book book)
         {
-            // Remove from file
+            if (!File.Exists(Path))
+                return;
             string[] lines = File.ReadAllLines(Path);
             string[] newLines = new string[lines.Length - 1];
             int j = 0;
